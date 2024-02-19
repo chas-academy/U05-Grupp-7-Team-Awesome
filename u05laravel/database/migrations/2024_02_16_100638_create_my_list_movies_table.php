@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('my_list_movies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('my_list_id');
-            $table->unsignedBigInteger('movie_id');
             $table->timestamps();
         });
     }

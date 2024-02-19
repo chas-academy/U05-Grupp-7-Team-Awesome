@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('my_lists', function (Blueprint $table) {
             $table->id();
             $table->string('list_name');
-            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
