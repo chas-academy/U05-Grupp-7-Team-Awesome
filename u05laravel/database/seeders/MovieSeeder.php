@@ -13,12 +13,17 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
+
+
+
         DB::table('movies')->insert([
             'titel' => 'The Ring',
             'genre' => 'Horror',
             'country' => 'Japan',
             'year' => '1998',
             'director' => 'Hideo Nakata',
+            'photoPath' => 'seed-moviecover/The-ring.jpg',
+
         ]);
         DB::table('movies')->insert([
             'titel' => 'The Audition',
@@ -26,6 +31,7 @@ class MovieSeeder extends Seeder
             'country' => 'Japan',
             'year' => '1999',
             'director' => 'Takashi Miike',
+            'photoPath' => 'seed-moviecover/Audition.jpg'
         ]);
         DB::table('movies')->insert([
             'titel' => 'One cut of the dead',
@@ -33,6 +39,7 @@ class MovieSeeder extends Seeder
             'country' => 'Japan',
             'year' => '2017',
             'director' => 'Shinichiro Ueda',
+            'photoPath' => 'seed-moviecover/One-cut-of-the-dead.jpg'
         ]);
         DB::table('movies')->insert([
             'titel' => 'AEon Flux',
@@ -40,6 +47,8 @@ class MovieSeeder extends Seeder
             'country' => 'USA',
             'year' => '2005',
             'director' => 'Karyn Kusama',
+            'photoPath' => 'seed-moviecover/movies.jpg'
+
         ]);
         DB::table('movies')->insert([
             'titel' => 'Interstellar',
@@ -47,6 +56,8 @@ class MovieSeeder extends Seeder
             'country' => 'USA',
             'year' => '2014',
             'director' => 'Christopher Nolan',
+            'photoPath' => 'seed-moviecover/Intersteller.jpg'
+
         ]);
         DB::table('movies')->insert([
             'titel' => 'The Matrix',
@@ -54,6 +65,9 @@ class MovieSeeder extends Seeder
             'country' => 'USA',
             'year' => '1999',
             'director' => 'Lana Wachowski',
+            'photoPath' => 'seed-moviecover/Matrix.jpg'
+
+
         ]);
     }
 }

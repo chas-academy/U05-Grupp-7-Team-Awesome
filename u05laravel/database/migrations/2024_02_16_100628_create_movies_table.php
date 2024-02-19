@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('country');
             $table->year('year');
             $table->string('director');
+            $table->string('photoPath');
             $table->timestamps();
         });
     }
