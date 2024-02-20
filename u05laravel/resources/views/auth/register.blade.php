@@ -1,6 +1,30 @@
+
+<!-- Header with Navbar -->
+<header class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="text-xl font-bold">DBOM</a>
+        
+        <!-- Navbar Menu -->
+        <nav>
+            <ul class="flex space-x-4">
+
+        <!-- Login/Register Buttons -->
+        <div class="flex space-x-4">
+            <a href="{{ route('login') }}" class="hover:text-gray-300">Login</a>
+            <a href="{{ route('register') }}" class="hover:text-gray-300">Register</a>
+        </div>
+    </div>
+</header>
+
+
+
 <x-guest-layout>
+
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
+        
 
         <!-- Name -->
         <div>
