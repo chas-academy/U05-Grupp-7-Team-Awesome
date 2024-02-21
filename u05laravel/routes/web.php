@@ -1,10 +1,12 @@
 <?php
 
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userDelete;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDeleteController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +19,20 @@ use App\Http\Controllers\UserDeleteController;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,11 +40,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/userDelete', function () {
-    return view('userDelete');
-});
 
 require __DIR__ . '/auth.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -52,16 +72,18 @@ require __DIR__ . '/auth.php';
 
 // Denna är för användare som har roll 1 när de är inloggade och då är admin
 
+// ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖö
+
+// Denna ska fungera om man är inlogga med role 1 altså admin. Hur kan vi kolla att det fungerar?
+
 Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
     // userDelete route
-    Route::get('/userDelete', [userDeleteController::class, 'userDelete']);
-
+    Route::get('/userDelete', [UserDeleteController::class, 'index']);
     // UserDelete routes
     // Denna tar fram alla användare och displayar dem på "Delete User" sidan
-    Route::get('/userDelete', [userDeleteController::class, 'index']);
+    // Route::get('/userDelete', [userDeleteController::class, 'index']);
 
     // Denna tar bort användare om du trycker på delete
-    Route::delete('/users/{id}', [userDeleteController::class, 'destroy'])->name('delete.user');
-
+    Route::delete('/users/{id}', [UserDeleteController::class, 'destroy'])->name('delete.user');
     // Lägg till andra routes efter behov
 });
