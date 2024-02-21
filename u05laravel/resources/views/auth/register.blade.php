@@ -2,6 +2,24 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <!-- Header with Navbar -->
+        <header class="bg-red-800 text-white py-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <a href="/" class="text-xl font-bold">DBOM</a>
+
+                <!-- Navbar Menu -->
+                <nav>
+                    <ul class="flex space-x-4">
+
+                        <!-- Login/Register Buttons -->
+                        <div class="flex space-x-4">
+                            <a href="{{ route('login') }}" class="hover:text-gray-300">Login</a>
+                            <a href="{{ route('register') }}" class="hover:text-gray-300">Register</a>
+                        </div>
+            </div>
+        </header>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -20,10 +38,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -32,9 +47,7 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>

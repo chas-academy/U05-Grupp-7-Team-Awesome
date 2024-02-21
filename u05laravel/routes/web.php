@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userDelete;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/userDelete', function () {
+    return view('userDelete');
+});
+
+require __DIR__ . '/auth.php';
+
+// Denna tar fram alla användare och displayar dom på "Delete User" sidan
+Route::get('/userDelete', [userDelete::class, 'index']);
+// Denna tar bort användare om du trycker på delete
+Route::delete('/users/{id}', [userDelete::class, 'destroy'])->name('delete.user');
