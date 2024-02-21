@@ -76,8 +76,9 @@ require __DIR__ . '/auth.php';
 // ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖö
 
 // Denna ska fungera om man är inlogga med role 1 altså admin. Hur kan vi kolla att det fungerar?
+// lägg in denna när de ät på riktigt 'auth', 'role:1'
 
-Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
+Route::middleware([])->group(function () {
     // userDelete route
     Route::get('/userDelete', [UserDeleteController::class, 'index']);
     // UserDelete routes
@@ -89,6 +90,10 @@ Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
     // Lägg till andra routes efter behov
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('movies', EditMovieController::class);
+// Denna ska vara när man är inloggad
+// Lägg in 'auth' i middleware sen när de är på riktigt
+
+
+Route::middleware([])->group(function () {
+    Route::get('/edit-movie', [EditMovieController::class, 'index']);
 });

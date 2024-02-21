@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
 
 class EditMovieController extends Controller
 {
@@ -11,8 +12,11 @@ class EditMovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movie::all();
+        return view('edit-movie', compact('movies'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
