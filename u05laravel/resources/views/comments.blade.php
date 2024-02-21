@@ -6,9 +6,8 @@
   @vite('resources/css/app.css')
 </head>
 <body>
-    <body class="bg-red-600">
   <!-- comment form -->
-<div class="flex justify-center items-center shadow-lg mt-56 mx-8 mb-4 max-w-lg">
+<div class="flex justify-center items-center shadow-lg mt-56 mx-8 mb-4 ">
    <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
       <div class="flex flex-wrap -mx-3 mb-6">
          <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment below</h2>
