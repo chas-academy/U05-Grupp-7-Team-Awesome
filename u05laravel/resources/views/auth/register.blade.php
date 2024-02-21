@@ -1,6 +1,30 @@
+
+<!-- Header with Navbar -->
+<header class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="text-xl font-bold">DBOM</a>
+        
+        <!-- Navbar Menu -->
+        <nav>
+            <ul class="flex space-x-4">
+
+        <!-- Login/Register Buttons -->
+        <div class="flex space-x-4">
+            <a href="{{ route('login') }}" class="hover:text-gray-300">Login</a>
+            <a href="{{ route('register') }}" class="hover:text-gray-300">Register</a>
+        </div>
+    </div>
+</header>
+
+
+
 <x-guest-layout>
+
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
+        
 
         <!-- Name -->
         <div>
@@ -40,7 +64,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+            <a class="underline text-sm text-gray-600 white:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
