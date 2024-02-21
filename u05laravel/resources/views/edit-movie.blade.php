@@ -72,8 +72,13 @@
                 @endforeach
                 <td class="py-2 px-4 border-b">
                     <div class="flex">
-                        <a href="{{ route('movies.destroy', ['id' => $movie->id]) }}" class="px-4 py-2 bg-blue-500 text-white rounded">Update</a>
-                        <form action="{{ route('movies.destroy', ['id' => $movie->id]) }}" method="POST">
+                        <form action="{{ route('movies.destroy', ['id' => $movie->id]) }}" method="POST" class="mr-2">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Update</button>
+                        </form>
+
+                        <form action="{{ route('movies.destroy', ['id' => $movie->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this movie?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>

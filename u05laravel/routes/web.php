@@ -98,3 +98,8 @@ Route::middleware([])->group(function () {
     Route::get('/edit-movie', [EditMovieController::class, 'index']);
     Route::delete('/movies/{id}', [EditMovieController::class, 'destroy'])->name('movies.destroy');
 });
+
+
+// Edit movies route 
+
+// Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');

@@ -47,7 +47,14 @@ class EditMovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $movie = Movie::find($id);
+
+        // Kontrollera om filmen hittades
+        if (!$movie) {
+            return redirect()->route('movies.index')->with('error', 'Film not found.');
+        }
+
+        return view('movies.edit', compact('movie'));
     }
 
     /**
