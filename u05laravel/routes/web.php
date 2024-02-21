@@ -4,6 +4,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDeleteController;
+use App\Http\Controllers\CommentController;
+
+
 
 
 
@@ -43,6 +46,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+
+Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');
 
 
 
