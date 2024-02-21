@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userDelete;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserDeleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,31 @@ Route::get('/userDelete', function () {
 
 require __DIR__ . '/auth.php';
 
-// Denna tar fram alla användare och displayar dom på "Delete User" sidan
-Route::get('/userDelete', [userDelete::class, 'index']);
-// Denna tar bort användare om du trycker på delete
-Route::delete('/users/{id}', [userDelete::class, 'destroy'])->name('delete.user');
+
+
+// Mikael Jakobsson
+
+// Delete För Admin
+
+// Denna utkommenterade kod är bara för att visa att kopplingarna fungerar
+
+// // Denna tar fram alla användare och displayar dom på "Delete User" sidan
+// Route::get('/userDelete', [userDelete::class, 'index']);
+// // Denna tar bort användare om du trycker på delete
+// Route::delete('/users/{id}', [userDelete::class, 'destroy'])->name('delete.user');
+
+// Denna är för användare som har roll 1 när de är inloggade och då är admin
+
+Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
+    // userDelete route
+    Route::get('/userDelete', [userDeleteController::class, 'userDelete']);
+
+    // UserDelete routes
+    // Denna tar fram alla användare och displayar dem på "Delete User" sidan
+    Route::get('/userDelete', [userDeleteController::class, 'index']);
+
+    // Denna tar bort användare om du trycker på delete
+    Route::delete('/users/{id}', [userDeleteController::class, 'destroy'])->name('delete.user');
+
+    // Lägg till andra routes efter behov
+});
