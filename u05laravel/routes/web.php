@@ -4,6 +4,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDeleteController;
+use App\Http\Controllers\EditMovieController;
 
 
 
@@ -86,4 +87,8 @@ Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
     // Denna tar bort användare om du trycker på delete
     Route::delete('/users/{id}', [UserDeleteController::class, 'destroy'])->name('delete.user');
     // Lägg till andra routes efter behov
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('movies', EditMovieController::class);
 });
