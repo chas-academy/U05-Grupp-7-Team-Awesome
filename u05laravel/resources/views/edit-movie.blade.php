@@ -11,7 +11,7 @@
 
 
 
-<div class="flex justify-center items-center h-screen flex-col">
+<!-- <div class="flex justify-center items-center h-screen flex-col">
     <h1 style="color: #ff0000;" class="mb-4">Filmlista</h1>
     <table class="border-collapse border border-gray-300">
         <thead>
@@ -37,6 +37,49 @@
                 <td class="py-2 px-4 border-b">{{ $value }}</td>
                 @endif
                 @endforeach
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div> -->
+
+<div class="flex justify-center items-center h-screen flex-col">
+    <h1 style="color: #ff0000;" class="mb-4">Filmlista</h1>
+    <table class="border-collapse border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200">
+                @foreach ($movies->first()->getAttributes() as $key => $value)
+                @if ($key === 'photoPath')
+                <th class="py-2 px-4 border-b">Bild</th>
+                @else
+                <th class="py-2 px-4 border-b">{{ ucfirst($key) }}</th>
+                @endif
+                @endforeach
+                <th class="py-2 px-4 border-b">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($movies as $movie)
+            <tr class="hover:bg-gray-100">
+                @foreach ($movie->getAttributes() as $key => $value)
+                @if ($key === 'photoPath')
+                <td class="py-2 px-4 border-b">
+                    <img src="{{ asset($value) }}" alt="Movie Cover" class="w-20 h-20 object-cover">
+                </td>
+                @else
+                <td class="py-2 px-4 border-b">{{ $value }}</td>
+                @endif
+                @endforeach
+                <td class="py-2 px-4 border-b">
+                    <div class="flex">
+                        <a href="{{ route('movies.destroy', ['id' => $movie->id]) }}" class="px-4 py-2 bg-blue-500 text-white rounded">Update</a>
+                        <form action="{{ route('movies.destroy', ['id' => $movie->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+                        </form>
+                    </div>
+                </td>
             </tr>
             @endforeach
         </tbody>

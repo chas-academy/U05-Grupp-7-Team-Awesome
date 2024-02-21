@@ -63,6 +63,13 @@ class EditMovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $movie = Movie::find($id);
+
+        if ($movie) {
+            $movie->delete();
+            return back()->with('success', 'Filmen har tagits bort!');
+        } else {
+            return back()->with('error', 'Kunde inte hitta filmen.');
+        }
     }
 }
