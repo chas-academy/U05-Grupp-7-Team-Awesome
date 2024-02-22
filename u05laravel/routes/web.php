@@ -4,6 +4,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDeleteController;
+use App\Http\Controllers\EditMovieController;
 
 
 
@@ -74,9 +75,14 @@ require __DIR__ . '/auth.php';
 
 // ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖö
 
-// Denna ska fungera om man är inlogga med role 1 altså admin. Hur kan vi kolla att det fungerar?
+// userDelete 
 
-Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
+// Denna sida displayar upp alla users och man kan deleta users om man vill.
+
+// Denna ska fungera om man är inlogga med role 1 altså admin. Hur kan vi kolla att det fungerar?
+// lägg in denna när de ät på riktigt 'auth', 'role:1'
+
+Route::middleware([])->group(function () {
     // userDelete route
     Route::get('/userDelete', [UserDeleteController::class, 'index']);
     // UserDelete routes
@@ -87,3 +93,30 @@ Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
     Route::delete('/users/{id}', [UserDeleteController::class, 'destroy'])->name('delete.user');
     // Lägg till andra routes efter behov
 });
+
+
+// Edit Movie
+
+// Alla filmer läggs upp på sidan och man kan deleta filmer och trycka på update för att länkas visare till den sidan ocg kunna uppdatera.
+
+// Denna ska vara när man är inloggad
+// Lägg in 'auth' i middleware sen när de är på riktigt
+
+
+Route::middleware([])->group(function () {
+    Route::get('/edit-movie', [EditMovieController::class, 'index']);
+    Route::delete('/movies/{id}', [EditMovieController::class, 'destroy'])->name('movies.destroy');
+});
+
+
+
+
+// Update Movies route 
+
+// Route::put('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+
+
+// Route::put('/movies/{id}/edit', [EditMovieController::class, 'update'])->name('movies.update');
+
+Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
