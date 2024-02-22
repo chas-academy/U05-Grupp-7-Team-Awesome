@@ -7,32 +7,26 @@
 
 
 
-<!-- Fixa en gene controller till denna -->
 
-<!-- ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ -->
 
-@extends('layouts.app')
+<form action="{{ route('movies.update', ['id' => $movie->id]) }}" method="POST">
+    @csrf
+    @method('PUT')
 
-@section('content')
-<div class="container mx-auto mt-8">
-    <h1>Redigera film</h1>
-    <form action="{{ route('movies.update', ['id' => $movie->id]) }}" method="post">
-        @csrf
-        @method('PUT')
+    <label for="title">Titel:</label>
+    <input type="text" name="title" id="title" value="{{ $movie->title }}">
 
-        <div class="mb-4">
-            <label for="title" class="block text-gray-600">Titel:</label>
-            <input type="text" id="title" name="title" value="{{ $movie->title }}" class="w-full p-2 border rounded">
-        </div>
+    <label for="genre">Genre:</label>
+    <input type="text" name="genre" id="genre" value="{{ $movie->genre }}">
 
-        <div class="mb-4">
-            <label for="genre" class="block text-gray-600">Genre:</label>
-            <input type="text" id="genre" name="genre" value="{{ $movie->genre }}" class="w-full p-2 border rounded">
-        </div>
+    <label for="country">Land:</label>
+    <input type="text" name="country" id="country" value="{{ $movie->country }}">
 
-        <!-- Lägg till andra formulärfält för de andra attributen -->
+    <label for="year">År:</label>
+    <input type="text" name="year" id="year" value="{{ $movie->year }}">
 
-        <button type="submit" class="mt-4 p-2 bg-blue-500 text-white rounded">Uppdatera</button>
-    </form>
-</div>
-@endsection
+    <label for="director">Regissör:</label>
+    <input type="text" name="director" id="director" value="{{ $movie->director }}">
+
+    <button type="submit">Uppdatera film</button>
+</form>
