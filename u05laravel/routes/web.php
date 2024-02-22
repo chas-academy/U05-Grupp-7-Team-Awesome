@@ -104,7 +104,7 @@ Route::middleware([])->group(function () {
 
 
 Route::middleware([])->group(function () {
-    Route::get('/edit-movie', [EditMovieController::class, 'index']);
+    Route::get('/edit-movies', [EditMovieController::class, 'index']);
     Route::delete('/movies/{id}', [EditMovieController::class, 'destroy'])->name('movies.destroy');
 });
 

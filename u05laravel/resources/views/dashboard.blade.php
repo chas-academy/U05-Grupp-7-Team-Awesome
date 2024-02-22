@@ -1,22 +1,15 @@
 <!-- Header with Navbar -->
+<!-- Header with Navbar -->
 <header class="bg-gray-800 text-white py-4">
-
-
     <div class="container mx-auto flex justify-between items-center">
-    <img src="{{ asset('images/Dbomlogo.png') }}" alt="Logo" width="100" height="100">
-    <a href="{{url('/edit-movie')}}">
-        movies
-       </a>
+        <a href="{{url('/userDelete')}}"class="hover:text-gray-300">UserDelete</a>
 
-       <a href="{{url('/edit-movie')}}">
-        movies
-       </a>
-       <a href="{{ route('edit-movie') }}">Redigera film</a>
+       
     </div>
 </header>
 
 <x-app-layout>
-    
+       </a>
     <x-slot name="header">
         
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
