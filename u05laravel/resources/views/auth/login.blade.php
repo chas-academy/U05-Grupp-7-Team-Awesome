@@ -3,15 +3,17 @@
 <header class="bg-gray-800 text-white py-4">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <a href="/" class="text-xl font-bold">DBOM</a>
+        <img src="{{ asset('images/Dbomlogo.png') }}" alt="Logo" width="100" height="100">
+
         
         <!-- Navbar Menu -->
-        <nav>
-            <ul class="flex space-x-4">
+        <a href="{{url('/edit-movie')}}"class="hover:text-gray-300">>
+        movies
+       </a>
 
         <!-- Login/Register Buttons -->
         <div class="flex space-x-4">
-            
+
             <a href="{{ route('login') }}" class="hover:text-gray-300">Login</a>
             <a href="{{ route('register') }}" class="hover:text-gray-300">Register</a>
         </div>

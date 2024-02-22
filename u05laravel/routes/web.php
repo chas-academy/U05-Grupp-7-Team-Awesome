@@ -103,3 +103,6 @@ Route::middleware([])->group(function () {
 // Edit movies route 
 
 // Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+
+
+
