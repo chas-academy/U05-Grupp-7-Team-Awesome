@@ -9,6 +9,8 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+ <!-- Add to My List button -->
+ <button style="position: absolute; top: 20px; right: 20px; transform: translateX(-50%); background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" type="submit" name="add_to_list" value="1">Add to My List</button>
 
 <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
     <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
