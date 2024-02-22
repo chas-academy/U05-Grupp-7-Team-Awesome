@@ -47,8 +47,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
-Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');
-
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 
 
