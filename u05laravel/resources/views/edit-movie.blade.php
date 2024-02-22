@@ -72,9 +72,9 @@
                 @endforeach
                 <td class="py-2 px-4 border-b">
                     <div class="flex">
-                        <form action="{{ route('movies.destroy', ['id' => $movie->id]) }}" method="POST" class="mr-2">
+                        <form action="{{ route('movies.edit', ['id' => $movie->id]) }}" method="POST" class="mr-2">
                             @csrf
-                            @method('PUT')
+                            @method('GET')
                             <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Update</button>
                         </form>
 
