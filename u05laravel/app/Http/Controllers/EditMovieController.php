@@ -124,7 +124,7 @@ class EditMovieController extends Controller
         // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
         // return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
 
-        // return redirect()->route('edit-movie')->with('success', 'Film updated successfully.');
+        // return redirect()->route('edit-movie')->with('success', 'Film updated successfully.');k
 
         return redirect()->action([EditMovieController::class, 'index'])->with('success', 'Film updated successfully.');
 
