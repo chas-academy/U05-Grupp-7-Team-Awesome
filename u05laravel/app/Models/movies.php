@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
+
 {
     use HasFactory;
-
-
-
-    protected $fillable = ['titel', 'genre', 'country', 'year', 'director', 'photo'];
+    protected $fillable = ['title', 'genre', 'country', 'rating'];
 }
+?>
