@@ -79,6 +79,10 @@ Route::post('/comments', [CommentController::class, 'store'])->name('comments.st
 
 // ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖö
 
+// userDelete 
+
+// Denna sida displayar upp alla users och man kan deleta users om man vill.
+
 // Denna ska fungera om man är inlogga med role 1 altså admin. Hur kan vi kolla att det fungerar?
 // lägg in denna när de ät på riktigt 'auth', 'role:1'
 
@@ -94,6 +98,11 @@ Route::middleware([])->group(function () {
     // Lägg till andra routes efter behov
 });
 
+
+// Edit Movie
+
+// Alla filmer läggs upp på sidan och man kan deleta filmer och trycka på update för att länkas visare till den sidan ocg kunna uppdatera.
+
 // Denna ska vara när man är inloggad
 // Lägg in 'auth' i middleware sen när de är på riktigt
 
@@ -104,6 +113,14 @@ Route::middleware([])->group(function () {
 });
 
 
-// Edit movies route 
 
-// Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+
+// Update Movies route 
+
+// Route::put('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+
+
+// Route::put('/movies/{id}/edit', [EditMovieController::class, 'update'])->name('movies.update');
+
+Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
