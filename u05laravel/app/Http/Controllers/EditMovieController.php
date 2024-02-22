@@ -72,15 +72,65 @@ class EditMovieController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    // public function update(Request $request, string $id)
+    // {
+    //     // Uppdatera filmen i databasen utan validering
+    //     Movie::where('id', $id)->update($request->except(['_token', '_method']));
+
+    //     // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
+    //     return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
+    // }
+
+    // public function update(Request $request, string $id)
+    // {
+    //     // Uppdatera filmen i databasen utan validering
+    //     Movie::where('id', $id)->update($request->except(['_token', '_method']));
+
+    //     // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
+    //     return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
+    // }
+
+
+    // public function update(Request $request, string $id)
+    // {
+    //     // Validera om det behövs
+
+    //     // Uppdatera filmen i databasen
+    //     Movie::where('id', $id)->update([
+    //         'field1' => $request->input('field1'),
+    //         'field2' => $request->input('field2'),
+    //         // Uppdatera med fler fält om det behövs
+    //     ]);
+
+    //     // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
+    //     return redirect()->route('movies.edit', ['id' => $id])->with('success', 'Film updated successfully.');
+    // }
+
+
     public function update(Request $request, string $id)
     {
-        // Uppdatera filmen i databasen utan validering
-        Movie::where('id', $id)->update($request->except(['_token', '_method']));
+        // Validera om det behövs
+        $validatedData = $request->validate([
+            'titel' => 'required|string|max:255',
+            'genre' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
+            'year' => 'required|integer',
+            'director' => 'required|string|max:255',
+        ]);
+
+        // Uppdatera filmen i databasen
+        Movie::where('id', $id)->update($validatedData);
 
         // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
-        return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
-    }
+        // return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
 
+        // return redirect()->route('edit-movie')->with('success', 'Film updated successfully.');
+
+        return redirect()->action([EditMovieController::class, 'index'])->with('success', 'Film updated successfully.');
+
+
+        // return view('update-movie', compact('movie'));
+    }
 
 
 

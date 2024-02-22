@@ -14,7 +14,7 @@
     @method('PUT')
 
     <label for="title">Titel:</label>
-    <input type="text" name="title" id="title" value="{{ $movie->title }}">
+    <input type="text" name="titel" id="titel" value="{{ $movie->titel }}">
 
     <label for="genre">Genre:</label>
     <input type="text" name="genre" id="genre" value="{{ $movie->genre }}">
