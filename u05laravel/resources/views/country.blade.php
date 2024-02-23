@@ -37,7 +37,7 @@
             <tbody>
                 @foreach ($movies as $movie)
                 <tr>
-                    <td class="border px-6 py-3">{{ $movie->title }}</td>
+                    <td class="border px-6 py-3">{{ $movie->titel }}</td>
                     <td class="border px-6 py-3">{{ $movie->genre }}</td>
                     <td class="border px-6 py-3">{{ $movie->country }}</td>
                     <td class="border px-6 py-3">{{ $movie->year }}</td>
