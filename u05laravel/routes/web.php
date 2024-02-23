@@ -123,7 +123,7 @@ require __DIR__ . '/auth.php';
 
 Route::middleware([])->group(function () {
     // userDelete route
-    Route::get('/userDelete', [UserDeleteController::class, 'index']);
+    Route::get('/userDelete', [UserDeleteController::class, 'index'])->name('delete.site');
     // UserDelete routes
     // Denna tar fram alla användare och displayar dem på "Delete User" sidan
     // Route::get('/userDelete', [userDeleteController::class, 'index']);
