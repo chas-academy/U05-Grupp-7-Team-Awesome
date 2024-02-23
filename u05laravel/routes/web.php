@@ -120,3 +120,10 @@ Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('mov
 // Route::put('/movies/{id}/edit', [EditMovieController::class, 'update'])->name('movies.update');
 
 Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
+
+
+// mohamed abdi 
+// update country movies
+Route::get('/country', 'CountryController@index')->name('country.index');
+Route::get('/country/filter', 'CountryController@filter')->name('movies.filter');
+
