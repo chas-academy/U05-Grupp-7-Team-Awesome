@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment; // Import the Comment model if not already imported
+use App\Models\my_list;
 
 class CommentController extends Controller
 {

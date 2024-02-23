@@ -52,7 +52,7 @@
         @foreach($comments as $comment)
         <div class="bg-gray-50 rounded-lg p-4 mb-4">
             <p class="text-lg font-semibold">Rating: {{ $comment->rating }}</p>
-            <p class="text-gray-700">{{ $comment->content }}</p>
+            <p class="text-gray-700">{{ $comment->comment }}</p>
         </div>
         @endforeach
         @else
