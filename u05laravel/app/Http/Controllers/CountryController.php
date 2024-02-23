@@ -16,12 +16,14 @@ class CountryController extends Controller
 
     public function filter(Request $request)
     {
-        $country = $request->input('country');
-        if ($country) {
-            $movies = Movie::where('country', $country)->get();
-        } else {
-            $movies = Movie::all();
+        $query = Movie::query();
+
+        // Filtrera baserat på land
+        if ($request->has('country')) {
+            $query->where('country', $request->input('country'));
         }
+
+        $movies = $query->get();
         $countries = Movie::distinct()->pluck('country')->toArray();
         return view('country', compact('movies', 'countries'));
     }

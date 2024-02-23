@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDeleteController;
 use App\Http\Controllers\EditMovieController;
-
+use App\Http\Controllers\CountryController;
 
 
 
@@ -124,6 +124,10 @@ Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies
 
 // mohamed abdi 
 // update country movies
-Route::get('/country', 'CountryController@index')->name('country.index');
-Route::get('/country/filter', 'CountryController@filter')->name('movies.filter');
 
+
+
+
+Route::get('/country', [CountryController::class, 'index'])->name('country.index');
+Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
+Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
