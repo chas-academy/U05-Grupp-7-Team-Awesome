@@ -5,11 +5,6 @@
         <!-- Logo -->
         <img src="{{ asset('images/Dbomlogo.png') }}" alt="Logo" width="100" height="100">
 
-        
-        <!-- Navbar Menu -->
-        <a href="{{url('/edit-movie')}}"class="hover:text-gray-300">>
-        movies
-       </a>
 
         <!-- Login/Register Buttons -->
         <div class="flex space-x-4">

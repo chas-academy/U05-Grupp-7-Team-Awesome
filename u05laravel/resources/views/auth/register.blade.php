@@ -5,11 +5,7 @@
         <!-- Logo -->
         <img src="{{ asset('images/Dbomlogo.png') }}" alt="Logo" width="100" height="100">
 
-        
-        <!-- Navbar Menu -->
-        <div>
-            testttt
-        </div>
+    
 
         <!-- Login/Register Buttons -->
         <div class="flex space-x-4">
