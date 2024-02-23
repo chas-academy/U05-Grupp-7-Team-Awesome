@@ -3,14 +3,8 @@
 use App\Http\Controllers\EditMovieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDeleteController;
-use App\Http\Controllers\CommentController;
-
-
-
-
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,52 +40,51 @@ require __DIR__ . '/auth.php';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
