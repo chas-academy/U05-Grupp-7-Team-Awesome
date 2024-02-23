@@ -6,6 +6,10 @@
     @vite('resources/css/app.css')
 </head>
 
+
+
+
+
 <body>
 
     <div class="flex justify-center items-center h-screen flex-col">
