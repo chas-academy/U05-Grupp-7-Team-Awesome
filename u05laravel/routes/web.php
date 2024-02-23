@@ -4,6 +4,7 @@ use App\Http\Controllers\EditMovieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDeleteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,54 @@ require __DIR__ . '/auth.php';
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Mohamed Abdi
+// Update country movies
+Route::get('/country', [CountryController::class, 'index'])->name('country.index');
+Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
 
 
 
