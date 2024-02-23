@@ -1,13 +1,9 @@
 <?php
 
-
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserDeleteController;
 use App\Http\Controllers\EditMovieController;
-
-
-
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserDeleteController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,20 +16,17 @@ use App\Http\Controllers\EditMovieController;
 |
 */
 
+// Route::get('/login', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-
-
-
-
+// Route::get('/logout', function () {
+//     return view('/login');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,8 +34,54 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 require __DIR__ . '/auth.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,16 +143,13 @@ Route::middleware([])->group(function () {
 
 
 Route::middleware([])->group(function () {
-    Route::get('/edit-movie', [EditMovieController::class, 'index']);
+    Route::get('/edit-movie', [EditMovieController::class, 'index'])->name('edit-movie');
     Route::delete('/movies/{id}', [EditMovieController::class, 'destroy'])->name('movies.destroy');
 });
 
 
-
-
 // Update Movies route 
 
-// Route::put('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
 Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
 
 
