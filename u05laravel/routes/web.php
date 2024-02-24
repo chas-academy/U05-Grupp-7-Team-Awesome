@@ -39,9 +39,12 @@ require __DIR__ . '/auth.php';
 
 
 
-
+// Daniel 
 Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
+//Route::post('/comments', [CommentController::class, 'store'])->name('comment'); 
+//Route::get('/my_list', [MyListController::class, 'index'])->name('my_list');
 
 
 

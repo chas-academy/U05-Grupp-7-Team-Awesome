@@ -21,21 +21,32 @@ class CommentController extends Controller
             'rating' => 'required|integer|min:1|max:5',
             'movie_id' => 'required|exists:movies,id',
         ]);
-
+    
         // Create a new comment instance
         $comment = new Comment();
-
+    
         // Assign attributes and save the comment
         $comment->user_id = auth()->user()->id;
         $comment->movie_id = $request->movie_id;
         $comment->content = $request->content;
         $comment->rating = $request->rating;
-        $comment->save();
-
-        // Redirect to the method that handles adding to My List
-        return redirect()->route('comments', ['movie_id' => $request->movie_id]);
+    
+        // Fetch the movie ID and rating from the request
+        $movieId = $request->movie_id;
+        $rating = $request->rating;
+    
+        // Fetch comments from the database
+        $comments = Comment::all(); 
+    
+        // Fetch the user ID of the authenticated user
+        $userId = auth()->user()->id;
+    
+        // Pass comments, userId, and movieId to the view
+        return view('comment')->with('comments', $comments)
+                              ->with('userId', $userId)
+                              ->with('movieId', $movieId)
+                              ->with('rating', $rating);
     }
-
     /**
      * Add a movie to the user's list.
      *
@@ -52,7 +63,7 @@ class CommentController extends Controller
         $myList = new MyList();
         $myList->user_id = auth()->user()->id;
         $myList->movie_id = $request->movie_id;
-        $myList->save();
+       
 
         // Redirect back with success message
         return redirect()->back()->with('success', 'Movie added to My List successfully.');

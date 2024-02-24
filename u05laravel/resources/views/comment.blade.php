@@ -9,8 +9,6 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
- <!-- Add to My List button -->
- <button style="position: absolute; top: 20px; right: 20px; transform: translateX(-50%); background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" type="submit" name="add_to_list" value="1">Add to My List</button>
 
 <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
     <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
@@ -25,7 +23,8 @@
         <!-- Comment Form -->
         <form action="{{ route('comments.store') }}" method="POST" class="space-y-4">
             @csrf
-            <input type="hidden" name="movie_id" value="{{ $userId }}">
+            <!-- Pass movie ID to the store method -->
+            <!--input type="hidden" name="movie_id" value=""-->
             <div>
                 <label for="rating" class="block text-sm font-medium text-gray-700">Rating:</label>
                 <input type="number" name="rating" id="rating" min="1" max="5"
@@ -46,16 +45,6 @@
 
         <hr class="my-6">
 
-          <!-- Add to My List button -->
-          <form action="{{ route('my_list') }}" method="POST">
-            @csrf
-            <input type="hidden" name="movie_id" value="{{ $userId }}">
-            <button type="submit"
-                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                Add to My List
-            </button>
-        </form>
-
         <!-- Display Existing Comments -->
         @if ($comments->count() > 0)
         <h2 class="text-xl font-semibold mb-2">Comments</h2>
@@ -68,6 +57,16 @@
         @else
         <p class="text-gray-500">No comments yet.</p>
         @endif
+
+        <!-- Add to My List button -->
+        <!--form action="" method="POST"-->
+            @csrf
+            <!-- Pass movie ID to the addToMyList method -->
+            <!--<input type="hidden" name="movie_id" value=""-->
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md mt-4">
+                Add to My List
+            </button>
+        </form>
     </div>
 </body>
 
