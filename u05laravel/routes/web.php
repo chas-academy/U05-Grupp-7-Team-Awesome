@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
-use App\Http\Controllers\GenreController;
+use App\Http\Controllers\CommentController;
 
 
 /*
@@ -38,6 +38,14 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+
+
+// Daniel
+// comments 
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/movies/{id}', [CommentController::class, 'show'])->name('movies.show');
 
 
 
