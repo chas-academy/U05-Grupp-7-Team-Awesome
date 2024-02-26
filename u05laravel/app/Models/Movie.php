@@ -11,6 +11,6 @@ class MyList extends Model
     public function mylist()
     {
         return $this->belongsToMany(MyList::class)
-                    ->withPivot('user_id' ); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
+                    ->withPivot('id', 'user_id' ); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
     }
 }
