@@ -8,6 +8,12 @@
     <title>Comments Page</title>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .grid-cols-3 {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+    </style>
 </head>
 <!-- Display Existing Movies with Images -->
 @if ($movies->count() > 0)
