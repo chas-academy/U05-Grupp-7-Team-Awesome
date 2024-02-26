@@ -9,6 +9,16 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+<!-- Display Existing Movies with Images -->
+@if ($movies->count() > 0)
+    <div class="grid grid-cols-3 gap-4">
+        @foreach($movies as $movie)
+        <img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}">
+        @endforeach
+    </div>
+@else
+    <p class="text-gray-500">No movies found.</p>
+@endif
 
 <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
     <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\MyList; // Import the MyList model
+use App\Models\Movie;
 
 class CommentController extends Controller
 {
@@ -14,6 +15,8 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     
     public function store(Request $request)
     {
         $request->validate([
@@ -78,11 +81,17 @@ class CommentController extends Controller
     {
         // Fetch comments from the database
         $comments = Comment::all(); 
-
+    
+        // Fetch movies from the database
+        $movies = Movie::all();
+    
         // Fetch the user ID of the authenticated user
         $userId = auth()->user()->id;
-
-        // Pass comments and userId to the view
-        return view('comment')->with('comments', $comments)->with('userId', $userId);
+    
+        // Pass comments, movies, and userId to the view
+        return view('comment')->with('comments', $comments)
+                              ->with('movies', $movies)
+                              ->with('userId', $userId);
+                              
     }
 }
