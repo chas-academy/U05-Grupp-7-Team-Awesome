@@ -36,6 +36,7 @@
                     <th class="px-6 py-3 text-left">Release Year</th>
                     <th class="px-6 py-3 text-left">Director</th>
                     <th class="px-6 py-3 text-left">Photo</th>
+                    <th class="px-6 py-3 text-left">comment</th>
                 </tr>
             </thead>
             <!-- den här koden det är en looper  som gå varje filmobjekt  i movie array sedan skapas en table som har information till ex.genre om filmen osv   -->
@@ -49,6 +50,12 @@
                     <td class="border px-6 py-3">{{ $movie->year }}</td>
                     <td class="border px-6 py-3">{{ $movie->director }}</td>
                     <td class="border px-6 py-3"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-16 h-16"></td>
+                    <td class="border px-6 py-3">
+                        <form action="{{ route('movies.comment', $movie) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Comment</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
