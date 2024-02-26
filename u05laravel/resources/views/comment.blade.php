@@ -9,15 +9,27 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
+@include('layouts.navigation')
+
+<!-- Page Heading -->
+@if (isset($header))
+<header class="bg-white dark:bg-gray-800 shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        {{ $header }}
+    </div>
+</header>
+@endif
+
 <!-- Display Existing Movies with Images -->
 @if ($movies->count() > 0)
-    <div class="grid grid-cols-3 gap-4">
-        @foreach($movies as $movie)
-        <img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}">
-        @endforeach
-    </div>
+<div class="grid grid-cols-3 gap-4">
+    @foreach($movies as $movie)
+    <img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}">
+    @endforeach
+</div>
 @else
-    <p class="text-gray-500">No movies found.</p>
+<p class="text-gray-500">No movies found.</p>
 @endif
 
 <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
