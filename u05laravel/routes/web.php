@@ -4,7 +4,8 @@ use App\Http\Controllers\EditMovieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDeleteController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CountryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,16 +40,60 @@ require __DIR__ . '/auth.php';
 
 
 
-// Daniel 
-Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
-Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
-
-//Route::post('/comments', [CommentController::class, 'store'])->name('comment'); 
-//Route::get('/my_list', [MyListController::class, 'index'])->name('my_list');
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Mohamed Abdi
+// Update country movies
+Route::get('/country', [CountryController::class, 'index'])->name('country.index');
+Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
 
 
 
@@ -127,7 +172,7 @@ Route::post('/comments', [CommentController::class, 'store'])->name('comments.st
 
 Route::middleware([])->group(function () {
     // userDelete route
-    Route::get('/userDelete', [UserDeleteController::class, 'index']);
+    Route::get('/userDelete', [UserDeleteController::class, 'index'])->name('delete.site');
     // UserDelete routes
     // Denna tar fram alla användare och displayar dem på "Delete User" sidan
     // Route::get('/userDelete', [userDeleteController::class, 'index']);
