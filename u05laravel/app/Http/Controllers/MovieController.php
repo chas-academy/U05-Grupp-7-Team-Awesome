@@ -10,7 +10,7 @@ class MovieController extends Controller
 {
     public function edit(Movie $movie)
     {
-        return view('films.edit', compact('movie'));
+        return view('movie.edit', compact('movie'));
     }
 
     public function update(Request $request, Movie $movie)
