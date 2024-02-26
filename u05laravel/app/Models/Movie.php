@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Movie extends Model
 {
     use HasFactory;
+
+    // Define the relationship with MyList model
     public function mylists(): BelongsToMany
     {
         return $this->belongsToMany(MyList::class);
     }
 
-
-
-    protected $fillable = ['titel', 'genre', 'country', 'year', 'director', 'photo'];
+    // Specify the fillable attributes
+    protected $fillable = ['title', 'genre', 'country', 'year', 'director', 'photo'];
 }

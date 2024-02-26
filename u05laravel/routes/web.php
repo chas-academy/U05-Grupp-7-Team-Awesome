@@ -110,28 +110,15 @@ Route::get('/country/filter', [CountryController::class, 'filter'])->name('count
 
 
 
+// mohamed adbi 
+// genre update 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Define your routes
+Route::get('/genre', [GenreController::class, 'index'])->name('genre.index');
+Route::get('/genre/filter', [GenreController::class, 'filter'])->name('genre.filter');
+Route::post('/movies/{movie}/comment', [GenreController::class, 'comment'])->name('movies.comment');
 
 
 
