@@ -27,18 +27,13 @@
             <!--input type="hidden" name="movie_id" value=""-->
             <div>
                 <label for="rating" class="block text-sm font-medium text-gray-700">Rating:</label>
-                <input type="number" name="rating" id="rating" min="1" max="5"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    required>
+                <input type="number" name="rating" id="rating" min="1" max="5" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
             </div>
             <div>
                 <label for="content" class="block text-sm font-medium text-gray-700">Comment:</label>
-                <textarea name="content" id="content"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    required></textarea>
+                <textarea name="content" id="content" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
             </div>
-            <button type="submit"
-                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Submit
             </button>
         </form>
@@ -60,12 +55,12 @@
 
         <!-- Add to My List button -->
         <!--form action="" method="POST"-->
-            @csrf
-            <!-- Pass movie ID to the addToMyList method -->
-            <!--<input type="hidden" name="movie_id" value=""-->
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md mt-4">
-                Add to My List
-            </button>
+        @csrf
+        <!-- Pass movie ID to the addToMyList method -->
+        <!--<input type="hidden" name="movie_id" value=""-->
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md mt-4">
+            Add to My List
+        </button>
         </form>
     </div>
 </body>
