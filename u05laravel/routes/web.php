@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\MyListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,113 +39,17 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
+//Lolo
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/mylist', [MyListController::class, 'show']);
 
 
 
 // Mohamed Abdi
 // Update country movies
+
 Route::get('/country', [CountryController::class, 'index'])->name('country.index');
 Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
