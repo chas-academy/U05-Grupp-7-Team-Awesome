@@ -6,15 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Movie extends Model
+class MyList extends Model
 {
-    use HasFactory;
-    public function mylists(): BelongsToMany
+    public function mylist()
     {
-        return $this->belongsToMany(MyList::class);
+        return $this->belongsToMany(MyList::class)
+                    ->withPivot('user_id' ); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
     }
-
-
-
-    protected $fillable = ['titel', 'genre', 'country', 'year', 'director', 'photo'];
 }
