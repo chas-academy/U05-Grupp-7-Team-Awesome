@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\GenreController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,26 +102,11 @@ Route::get('/country/filter', [CountryController::class, 'filter'])->name('count
 
 
 
+// mohamed adbi 
+// genre update 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/genre', [GenreController::class, 'index'])->name('genre.index');
+Route::get('/genre/filter', [GenreController::class, 'filter'])->name('genre.filter');
 
 
 
