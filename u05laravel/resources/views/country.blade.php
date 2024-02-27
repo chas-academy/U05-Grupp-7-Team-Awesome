@@ -12,24 +12,26 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
+<header class="font-sans antialiased">
+    <div>
+        @include('layouts.navigation')
 
-<div>
-    @include('layouts.navigation')
-
-    <!-- Page Heading -->
-    @if (isset($header))
-    <header class="bg-white dark:bg-gray-800 shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            {{ $header }}
-        </div>
-    </header>
-    @endif
-    </head>
+        <!-- Page Heading -->
+        @if (isset($header))
+        <header classbg-white dark:bg-gray-800 shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+        @endif
+</header>
 
 
 
-    <body class="bg-gray-900 text-white p-8">
-        <h1 class="text-3xl mb-9">Country Movies</h1>
+ <body>
+
+  <div>
+       <h1 class="text-3xl mb-9">Country Movies</h1>
 
 
         <form action="{{ route('country.filter') }}" method="GET" class="mb-8">
