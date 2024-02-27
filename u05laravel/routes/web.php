@@ -8,6 +8,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
