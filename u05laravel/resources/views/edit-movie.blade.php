@@ -20,22 +20,24 @@
 
 
 
-@include('layouts.navigation')
+<nav class="w-full">
+    @include('layouts.navigation')
 
-<!-- Page Heading -->
-@if (isset($header))
-<header class="bg-white dark:bg-gray-800 shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        {{ $header }}
-    </div>
-</header>
-@endif
+    <!-- Page Heading -->
+    @if (isset($header))
+    <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            {{ $header }}
+        </div>
+    </header>
+    @endif
+</nav>
 
 <!-- Table för Filmer -->
 
 <body>
-    <div class="flex flex-col items-center p-4 sm:p-0">
-        <h1 style="color: #ff0000;" class="mb-4 text-xl md:text-2xl lg:text-3xl">Filmlista</h1>
+    <div class="flex flex-col items-center p-4 sm:p-0 min-h-screen mb-16">
+        <h1 style="color: #ff0000;" class="mb-4 text-xl md:text-2xl lg:text-3xl mb-16 mt-8">Filmlista</h1>
         <table class="w-full sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 bg-white border-collapse border border-gray-300 sm:rounded-lg">
             <thead class="hidden sm:table-header-group">
                 <tr class="bg-gray-200 sm:w-full">
@@ -83,9 +85,12 @@
     </div>
 </body>
 
-<div class="fixed bottom-0 w-full bg-gray-800 text-white p-4">
+<!-- <div class="fixed bottom-0 w-full bg-gray-800 text-white p-4">
+    @include('footer')
+</div> -->
+
+<div class=" w-full bg-gray-800 text-white p-4 z-50">
     @include('footer')
 </div>
-
 
 </html

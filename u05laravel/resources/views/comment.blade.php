@@ -10,7 +10,24 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+<!-- Scripts Navbar-->
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+<nav class="w-full">
+    @include('layouts.navigation')
+
+    <!-- Page Heading -->
+    @if (isset($header))
+    <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            {{ $header }}
+        </div>
+    </header>
+    @endif
+</nav>
+
+<body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center block">
     <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
         <!-- Display success message if any -->
         @if (session('success'))
@@ -67,11 +84,13 @@
         <p class="text-gray-500">No comments yet.</p>
         @endif
 
-        
+
         </form>
     </div>
 </body>
 
-@include('footer')
+<div class=" w-full bg-gray-800 text-white p-4 z-50">
+    @include('footer')
+</div>
 
 </html>
