@@ -12,26 +12,25 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<header class="font-sans antialiased">
+<nav class="w-full">
+    @include('layouts.navigation')
+
+    <!-- Page Heading -->
+    @if (isset($header))
+    <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            {{ $header }}
+        </div>
+    </header>
+    @endif
+</nav>
+
+
+
+<body>
+
     <div>
-        @include('layouts.navigation')
-
-        <!-- Page Heading -->
-        @if (isset($header))
-        <header classbg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endif
-</header>
-
-
-
- <body>
-
-  <div>
-       <h1 class="text-3xl mb-9">Country Movies</h1>
+        <h1 class="text-3xl mb-9">Country Movies</h1>
 
 
         <form action="{{ route('country.filter') }}" method="GET" class="mb-8">
@@ -72,13 +71,16 @@
                 </tbody>
             </table>
         </div>
+    </div>
 
-    </body>
+</body>
 </div>
 
 
 
-@include('footer')
+<div class=" w-full bg-gray-800 text-white p-4 z-50 block">
+    @include('footer')
+</div>
 
 
 </html>
