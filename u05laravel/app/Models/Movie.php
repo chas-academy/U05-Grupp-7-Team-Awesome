@@ -19,7 +19,7 @@ class Movie extends Model
         return $this->belongsToMany(MyList::class);    
      }      
      
-}
+
 
 
 
