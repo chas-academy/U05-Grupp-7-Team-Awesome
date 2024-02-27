@@ -12,7 +12,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<header class="font-sans antialiased">
     <div>
         @include('layouts.navigation')
 
@@ -24,12 +24,14 @@
             </div>
         </header>
         @endif
-</head>
+</header>
 
 
 
-        <body class="bg-gray-900 text-white p-8">
-            <h1 class="text-3xl mb-9">Country Movies</h1>
+ <body>
+
+  <div>
+       <h1 class="text-3xl mb-9">Country Movies</h1>
 
 
             <form action="{{ route('country.filter') }}" method="GET" class="mb-8">
