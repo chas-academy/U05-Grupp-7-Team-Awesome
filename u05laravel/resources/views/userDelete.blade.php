@@ -8,26 +8,46 @@
 
 
 
+<!-- Scripts Navbar-->
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        @include('layouts.navigation')
+
+        <!-- Page Heading -->
+        @if (isset($header))
+        <header class="bg-white dark:bg-gray-800 shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+        @endif
 
 
-<body>
 
-    <div class="flex justify-center items-center h-screen flex-col">
-        <h1 style="color: #ff0000;" class="mb-4">Användarlista</h1>
-        <ul class="list-disc">
-            @foreach ($users as $user)
-            <li class="flex items-center justify-between mb-3">
-                <span>{{ $user->name }} - {{ $user->email }}</span>
-                <form method="POST" action="{{ route('delete.user', ['id' => $user->id]) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
-                </form>
-            </li>
-            @endforeach
-        </ul>
-    </div>
 
-</body>
+        <body class="bg-gray-100">
 
-</html>
+            <div class="flex justify-center items-center h-screen flex-col">
+                <h1 style="color: #ff0000;" class="text-4xl font-bold mb-4">Användarlista</h1>
+                <ul class="list-disc w-full max-w-md">
+                    @foreach ($users as $user)
+                    <li class="flex items-center justify-between mb-3 bg-white p-4 rounded-md shadow-md">
+                        <span>{{ $user->name }} - {{ $user->email }}</span>
+                        <form method="POST" action="{{ route('delete.user', ['id' => $user->id]) }}" class="flex flex-col items-center justify-center mt-4">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-700">Delete</button>
+                        </form>
+
+
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+
+        </body>
+
+        </html>

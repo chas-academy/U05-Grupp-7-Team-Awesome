@@ -5,6 +5,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\TopmovieController;
+
+use App\Http\Controllers\MyListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,59 +44,24 @@ require __DIR__ . '/auth.php';
 
 
 
+// Daniel
+// comments 
+Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
+Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/movies/{id}', [CommentController::class, 'show'])->name('movies.show');
+Route::post('/movies/{id}/comment', [CommentController::class, 'store'])->name('movies.comment');
+Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovies'])->name('comments.movie');
 
 
+//Lolo
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
 
 // Mohamed Abdi
 // Update country movies
+
 Route::get('/country', [CountryController::class, 'index'])->name('country.index');
 Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
 
@@ -100,28 +70,15 @@ Route::get('/country/filter', [CountryController::class, 'filter'])->name('count
 
 
 
+// mohamed adbi 
+// genre update 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Define your routes
+Route::get('/genre', [GenreController::class, 'index'])->name('genre.index');
+Route::get('/genre/filter', [GenreController::class, 'filter'])->name('genre.filter');
+Route::post('/movies/{movie}/comment', [GenreController::class, 'comment'])->name('movies.comment');
 
 
 
@@ -205,3 +162,14 @@ Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('mov
 // Route::put('/movies/{id}/edit', [EditMovieController::class, 'update'])->name('movies.update');
 
 Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
+
+
+
+
+
+
+// Top Movie
+
+Route::middleware([])->group(function () {
+    Route::get('/topmovie', [TopmovieController::class, 'index'])->name('topmovie.index');
+});
