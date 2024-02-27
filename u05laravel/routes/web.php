@@ -56,7 +56,7 @@ Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovie
 //Lolo
 
 
-Route::get('/mylist', [MyListController::class, 'show']->name('mylist.show'));
+Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
 
 // Mohamed Abdi
