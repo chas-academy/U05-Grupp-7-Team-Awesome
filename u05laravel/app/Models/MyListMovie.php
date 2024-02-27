@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class MyListMovie extends Model
 {
-    use HasFactory;
+
+    // Define the relationship with MyList model
+    //public function mylisttable()
+    //{
+      //  return $this->belongsToMany(MyList::class)
+           //         ->withPivot('user_id' ); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
+    //}
+
+    // Specify the fillable attributes
+    protected $fillable = ['title', 'genre', 'country', 'year', 'director', 'photo'];
 }

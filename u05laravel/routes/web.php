@@ -9,6 +9,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\TopmovieController;
 
+use App\Http\Controllers\MyListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,60 +53,15 @@ Route::post('/movies/{id}/comment', [CommentController::class, 'store'])->name('
 Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovies'])->name('comments.movie');
 
 
+//Lolo
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
 
 // Mohamed Abdi
 // Update country movies
+
 Route::get('/country', [CountryController::class, 'index'])->name('country.index');
 Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
 
