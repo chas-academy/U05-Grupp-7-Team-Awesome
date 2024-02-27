@@ -1,66 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genre Movies</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
 
-<body class="bg-red-900 text-black p-8">
-    <h1 class="text-3xl mb-8">Genre Movies</h1>
-    <!-- i den har form  koden det gör att filtarera på genre  -->
-    <form action="{{ route('genre.filter') }}" method="GET" class="mb-8">
-        <!-- i den har label det är ett loop som visa vilken alternative av genre som man kan välja   -->
-        <label for="genre" class="mr-4">Select Genre:</label>
-        <select name="genre" id="genre" class="rounded-md bg-gray-500 text-black p-2">
-            <option value="">All</option>
-            @foreach ($genres as $genre)
-            <option value="{{ $genre }}">{{ $genre }}</option>
-            @endforeach
-        </select>
-        <!-- deta är en knapp som man kan filtarera  saker som man vill see   -->
-        <button type="submit" class="bg-gray-300 text-black px-4 py-2 rounded-md ml-4">Filter</button>
-    </form>
+<!-- Scripts Navbar-->    
+ @vite(['resources/css/app.css', 'resources/js/app.js'])     
+</head>     
+ <body class="font-sans antialiased">        
+     <div class="min-h-screen bg-gray-100 dark:bg-white-900">            
+         @include('layouts.navigation')    
+                   <!-- Page Heading -->            
+                    @if (isset($header))             
+                    <header class="bg-white dark:bg--800 shadow">                
+                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">                     {{ $header }}                 
 
-    <div class="overflow-x-auto border-collapse rounded-md">
+                         </div>           
+                          </header>            
+                           @endif
 
-        <!-- det är en TabelRubriken som har flera kolumrubriken  som visar olika information om movies o   -->
-        <table class="w-full bg-gray-400 text-black ">
-            <thead>
-                <tr>
-                    <th class="px-6 py-3 text-left">Title</th>
-                    <th class="px-6 py-3 text-left">Genre</th>
-                    <th class="px-6 py-3 text-left">Country</th>
-                    <th class="px-6 py-3 text-left">Release Year</th>
-                    <th class="px-6 py-3 text-left">Director</th>
-                    <th class="px-6 py-3 text-left">Photo</th>
-                    <th class="px-6 py-3 text-left">comment</th>
-                </tr>
-            </thead>
-            <!-- den här koden det är en looper  som gå varje filmobjekt  i movie array sedan skapas en table som har information till ex.genre om filmen osv   -->
+<body class="bg-white dark:bg-gray-900">
 
-            <tbody>
-                @foreach ($movies as $movie)
-                <tr>
-                    <td class="border px-6 py-3">{{ $movie->titel }}</td>
-                    <td class="border px-6 py-3">{{ $movie->genre }}</td>
-                    <td class="border px-6 py-3">{{ $movie->country }}</td>
-                    <td class="border px-6 py-3">{{ $movie->year }}</td>
-                    <td class="border px-6 py-3">{{ $movie->director }}</td>
-                    <td class="border px-6 py-3"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-16 h-16"></td>
-                    <td class="border px-6 py-3">
-                        <form action="{{ route('movies.comment', $movie) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Comment</button>
-                        </form>
-                    </td>
-                </tr>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Heading -->
+        <h1 class="text-3xl mb-8">Genre Movies</h1>
+
+        <!-- Filter Form -->
+        <form action="{{ route('genre.filter') }}" method="GET" class="mb-8 flex flex-col sm:flex-row items-center">
+            <label for="genre" class="mr-4">Select Genre:</label>
+            <select name="genre" id="genre" class="rounded-md bg-gray-500 text-black p-2 mb-2 sm:mb-0">
+                <option value="">All</option>
+                @foreach ($genres as $genre)
+                <option value="{{ $genre }}">{{ $genre }}</option>
                 @endforeach
-            </tbody>
-        </table>
+            </select>
+            <button type="submit" class="bg-gray-300 text-black px-4 py-2 rounded-md ml-0 sm:ml-4">Filter</button>
+        </form>
+
+        <!-- Responsive Table -->
+        <div class="overflow-x-auto">
+            <table class="w-full sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 bg-white border-collapse border border-gray-300 sm:rounded-lg">
+                <thead  class="hidden sm:table-header-group" >
+                    <tr class="hover:bg-gray-100 sm:table-row flex flex-col w-full">
+                        <th class="px-6 py-3 text-left">Title</th>
+                        <th class="px-6 py-3 text-left">Genre</th>
+                        <th class="px-6 py-3 text-left">Country</th>
+                        <th class="px-6 py-3 text-left">Release Year</th>
+                        <th class="px-6 py-3 text-left">Director</th>
+                        <th class="px-6 py-3 text-left">Photo</th>
+                        <th class="px-6 py-3 text-left">Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($movies as $movie)
+                    <tr>
+                        <td class="border px-6 py-3">{{ $movie->titel }}</td>
+                        <td class="border px-6 py-3">{{ $movie->genre }}</td>
+                        <td class="border px-6 py-3">{{ $movie->country }}</td>
+                        <td class="border px-6 py-3">{{ $movie->year }}</td>
+                        <td class="border px-6 py-3">{{ $movie->director }}</td>
+                        <td class="border px-6 py-3"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-16 h-16"></td>
+                        <td class="border px-6 py-3">
+                            <form action="{{ route('movies.comment', $movie) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Comment</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
+
 
 </html>

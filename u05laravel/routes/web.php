@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\TopmovieController;
 
 use App\Http\Controllers\MyListController;
 
@@ -159,3 +160,14 @@ Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('mov
 // Route::put('/movies/{id}/edit', [EditMovieController::class, 'update'])->name('movies.update');
 
 Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
+
+
+
+
+
+
+// Top Movie
+
+Route::middleware([])->group(function () {
+    Route::get('/topmovie', [TopmovieController::class, 'index'])->name('topmovie.index');
+});
