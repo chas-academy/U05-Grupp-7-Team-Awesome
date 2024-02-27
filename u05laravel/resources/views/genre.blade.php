@@ -34,7 +34,10 @@
     <div class="min-h-screen bg-gray-100 dark:bg-white-900">
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
+            <!-- Heading -->
+            <h1 class="text-3xl mb-8">Genre Movies</h1>
             <!-- Heading -->
             <h1 class="text-3xl mb-8">Genre Movies</h1>
 
