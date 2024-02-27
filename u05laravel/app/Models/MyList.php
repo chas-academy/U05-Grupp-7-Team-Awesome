@@ -11,7 +11,7 @@ class Movie extends Model
     public function movies()
     {
         return $this->belongsToMany(Movie::class)
-                    ->withPivot('movie_id', 'my_list_id'); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
+                    ->withPivot('movie_id', 'my_list_id'); // använda $user_id? Lägg till alla relevanta kolumnnamn från pivot-tabellen här
     }
 };
 
