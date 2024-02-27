@@ -45,9 +45,11 @@ require __DIR__ . '/auth.php';
 
 // Daniel
 // comments 
-Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
-Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
+Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
 Route::get('/movies/{id}', [CommentController::class, 'show'])->name('movies.show');
+Route::post('/movies/{id}/comment', [CommentController::class, 'store'])->name('movies.comment');
+Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovies'])->name('comments.movie');
 
 
 

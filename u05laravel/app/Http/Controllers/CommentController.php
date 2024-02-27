@@ -19,6 +19,7 @@ class CommentController extends Controller
      
     public function store(Request $request)
     {
+       
         $request->validate([
             'content' => 'required|string',
             'rating' => 'required|integer|min:1|max:5',
@@ -93,5 +94,9 @@ class CommentController extends Controller
                               ->with('movies', $movies)
                               ->with('userId', $userId);
                               
+    }
+    Public function getCommentsByMovies($movie_id){
+        
+        $movie = Movie::where("id", $movie_id)->first();
     }
 }
