@@ -18,4 +18,19 @@ class Movie extends Model
 
     // Specify the fillable attributes
     protected $fillable = ['title', 'genre', 'country', 'year', 'director', 'photo'];
+
+
+
+
+
+
+
+
+
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
