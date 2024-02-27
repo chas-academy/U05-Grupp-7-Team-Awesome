@@ -12,7 +12,7 @@ class MyList extends Model
     public function mylisttable()
     {
         return $this->belongsToMany(MyList::class)
-                    ->withPivot('id', 'user_id' ); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
+                    ->withPivot('user_id' ); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
     }
 
     // Specify the fillable attributes

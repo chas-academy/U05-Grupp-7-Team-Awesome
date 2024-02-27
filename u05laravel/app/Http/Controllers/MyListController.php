@@ -22,3 +22,5 @@ class MyListController extends Controller
         return view('mylist.show', ['myList' => $myList]);
     }
 }
+
+//Read function från MyList
