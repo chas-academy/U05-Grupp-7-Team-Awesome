@@ -17,20 +17,7 @@ class UserDeleteController extends Controller
         return view('userDelete', compact('users'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    //     public function destroy(string $id)
-    //     {
-    //         $this->validate(request(), [
-    //             'id' => 'required|numeric|exists:users,id',
-    //         ]);
 
-    //         $user = User::findOrFail($id);
-    //         $user->delete();
-
-    //         return back()->with('success', 'Användaren har tagits bort!');
-    //     }
     public function destroy($id)
     {
         $user = User::find($id);
