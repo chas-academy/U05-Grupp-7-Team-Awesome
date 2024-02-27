@@ -33,7 +33,7 @@
             My List
           </a>
 
-          <a href="{{ route('delete.site') }}" class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm leading-4 font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-500 dark:hover:border-gray-400 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-700 dark:focus:border-gray-400 transition duration-150 ease-in-out">
+          <a href="{{ route('topmovie.index') }}" class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm leading-4 font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-500 dark:hover:border-gray-400 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-700 dark:focus:border-gray-400 transition duration-150 ease-in-out">
             Top Movies
           </a>
 
@@ -137,7 +137,7 @@
 
 
         <!-- Dessa skall länkas sen -->
-        <x-dropdown-link :href="route('delete.site')">
+        <x-dropdown-link :href="route('topmovie.index')">
           {{ __('Top Movies') }}
         </x-dropdown-link>
 
