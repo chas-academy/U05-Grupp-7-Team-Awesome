@@ -27,7 +27,9 @@ class Movie extends Model
 
 
 
-
+    // Denna funktion möjliggör att jag kan komma åt comment table och dess columner eller värden tack vare
+    // att pk från Movie är kopplat med foregin key in till Comment. Detta möjliggör att man kan komma åt specifika användare och dess kommentarer eller rating
+    // och alla ratings eller kommentarer.
 
     public function comments()
     {
