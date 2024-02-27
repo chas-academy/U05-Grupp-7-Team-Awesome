@@ -51,6 +51,7 @@ Route::post('/comment', [CommentController::class, 'store'])->name('comments.sto
 Route::get('/movies/{id}', [CommentController::class, 'show'])->name('movies.show');
 Route::post('/movies/{id}/comment', [CommentController::class, 'store'])->name('movies.comment');
 Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovies'])->name('comments.movie');
+Route::get('/comments', [CommentController::class, 'allMoviesComments'])->name('comments');
 
 
 //Lolo

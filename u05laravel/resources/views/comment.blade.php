@@ -36,15 +36,8 @@
             <p>{{ session('success') }}</p>
         </div>
         @endif
-        <!-- Fetch movie details using movie ID -->
-        @if($movie)
-        <div>
-            <h2>{{ $movie->title }}</h2>
-            <img src="{{ asset($movie->photoPath) }}" alt="Movie Image">
-        </div>
-        @else
-        <p>Movie not found.</p>
-        @endif
+<!-- Fetch movie details using movie ID -->
+
         <!-- Fetch movie details using movie ID -->
         @php
         $movie = App\Models\Movie::find($movieId);

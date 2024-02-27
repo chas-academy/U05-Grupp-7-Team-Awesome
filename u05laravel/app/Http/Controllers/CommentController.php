@@ -106,4 +106,15 @@ class CommentController extends Controller
     // Return the view with the movie details
     return view('comment', ['movie' => $movie, 'movieId' => $movie_id, 'comments' => $comments]);
 }
-    }
+    
+
+    Public function allMoviesComments()
+{
+    // Fetch all movies with their associated comments
+    $movies = Movie::with('comments')->get();
+
+    // Pass data to the view
+    return view('comments', compact('movies'));
+}
+
+}
