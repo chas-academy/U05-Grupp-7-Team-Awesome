@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class MyList extends Model
+class Movie extends Model
 {
-    use HasFactory;
-    public function movies(): BelongsToMany
+    public function movies()
     {
-        return $this->belongsToMany(Movie::class);
+        return $this->belongsToMany(Movie::class)
+                    ->withPivot('movie_id', 'my_list_id'); // använda $user_id? Lägg till alla relevanta kolumnnamn från pivot-tabellen här
     }
-}
+};
+
+
