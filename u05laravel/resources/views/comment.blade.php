@@ -10,28 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-@include('layouts.navigation')
-
-<!-- Page Heading -->
-@if (isset($header))
-<header class="bg-white dark:bg-gray-800 shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        {{ $header }}
-    </div>
-</header>
-@endif
-
-<!-- Display Existing Movies with Images -->
-@if ($movies->count() > 0)
-<div class="grid grid-cols-3 gap-4">
-    @foreach($movies as $movie)
-    <img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}">
-    @endforeach
-</div>
-@else
-<p class="text-gray-500">No movies found.</p>
-@endif
-
 <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
     <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
         <!-- Display success message if any -->
@@ -42,11 +20,26 @@
         </div>
         @endif
 
+        <!-- Fetch movie details using movie ID -->
+        @php
+            $movie = App\Models\Movie::find($movieId);
+        @endphp
+
+        @if($movie)
+            <div>
+                <h2>{{ $movie->title }}</h2>
+                <img src="{{ asset($movie->photoPath) }}" alt="Movie Image">
+                <!-- Additional movie details -->
+            </div>
+        @else
+            <p>Movie not found.</p>
+        @endif
+
         <!-- Comment Form -->
         <form action="{{ route('comments.store') }}" method="POST" class="space-y-4">
             @csrf
             <!-- Pass movie ID to the store method -->
-            <!--input type="hidden" name="movie_id" value=""-->
+            <input type="hidden" name="movie_id" value="{{ $movieId }}">
             <div>
                 <label for="rating" class="block text-sm font-medium text-gray-700">Rating:</label>
                 <input type="number" name="rating" id="rating" min="1" max="5" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
@@ -76,13 +69,13 @@
         @endif
 
         <!-- Add to My List button -->
-        <!--form action="" method="POST"-->
-        @csrf
-        <!-- Pass movie ID to the addToMyList method -->
-        <!--<input type="hidden" name="movie_id" value=""-->
-        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md mt-4">
-            Add to My List
-        </button>
+        <form action="{{ route('my_list') }}" method="POST">
+            @csrf
+            <!-- Pass movie ID to the addToMyList method -->
+            <input type="hidden" name="movie_id" value="{{ $movieId }}">
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md mt-4">
+                Add to My List
+            </button>
         </form>
     </div>
 </body>

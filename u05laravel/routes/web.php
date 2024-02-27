@@ -6,6 +6,7 @@ use App\Http\Controllers\UserDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\GenreController;
 
 
 /*
