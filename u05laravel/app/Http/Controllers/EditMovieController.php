@@ -23,7 +23,7 @@ class EditMovieController extends Controller
      */
     public function create()
     {
-        //
+        //redirectar till view med formulär, för admin
     }
 
     /**
@@ -31,7 +31,7 @@ class EditMovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //adds movies, för admin
     }
 
     /**
@@ -39,7 +39,7 @@ class EditMovieController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //hämtar spcifik film, och läser ut filer i view
     }
 
     /**

@@ -10,12 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class = "bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-<div  class = "max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+<body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
         <!-- Display success message if any -->
         @if (session('success'))
-        <div class = "bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role = "alert">
-        <p   class = "font-bold">Success</p>
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
+            <p class="font-bold">Success</p>
             <p>{{ session('success') }}</p>
         </div>
         @endif
@@ -28,6 +28,19 @@
 @else
     <p>Movie not found.</p>
 @endif
+        <!-- Fetch movie details using movie ID -->
+        @php
+        $movie = App\Models\Movie::find($movieId);
+        @endphp
+
+        @if($movie)
+        <div>
+            <h2>{{ $movie->title }}</h2>
+            <img src="{{ asset($movie->photoPath) }}" alt="Movie Image">
+        </div>
+        @else
+        <p>Movie not found.</p>
+        @endif
         <!-- Comment Form -->
         <form action="{{ route('comments.store') }}" method="POST" class="space-y-4">
             @csrf
@@ -65,5 +78,7 @@
         </form>
     </div>
 </body>
+
+@include('footer')
 
 </html>
