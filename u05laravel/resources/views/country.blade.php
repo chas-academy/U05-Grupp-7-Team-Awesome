@@ -13,6 +13,8 @@
 
 <nav class="w-full">
     @include('layouts.navigation')
+<nav class="w-full">
+    @include('layouts.navigation')
 
     <!-- Page Heading -->
     @if (isset($header))

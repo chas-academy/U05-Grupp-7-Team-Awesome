@@ -98,5 +98,23 @@ class CommentController extends Controller
     Public function getCommentsByMovies($movie_id){
         
         $movie = Movie::where("id", $movie_id)->first();
-    }
+         // Find the movie with the given ID
+    $movie = Movie::find($movie_id);
+    $comments = $movie->comments;
+
+
+    // Return the view with the movie details
+    return view('comment', ['movie' => $movie, 'movieId' => $movie_id, 'comments' => $comments]);
+}
+    
+
+    Public function allMoviesComments()
+{
+    // Fetch all movies with their associated comments
+    $movies = Movie::with('comments')->get();
+
+    // Pass data to the view
+    return view('comments', compact('movies'));
+}
+
 }

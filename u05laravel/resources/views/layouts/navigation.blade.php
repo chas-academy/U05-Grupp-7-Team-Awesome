@@ -29,7 +29,7 @@
             Country
           </a>
 
-          <a href="{{ route('delete.site') }}" class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm leading-4 font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-500 dark:hover:border-gray-400 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-700 dark:focus:border-gray-400 transition duration-150 ease-in-out">
+          <a href="{{ route('mylist.show') }}" class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm leading-4 font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-500 dark:hover:border-gray-400 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-700 dark:focus:border-gray-400 transition duration-150 ease-in-out">
             My List
           </a>
 
@@ -142,9 +142,14 @@
         </x-dropdown-link>
 
 
-        <x-dropdown-link :href="route('delete.site')">
+        <x-dropdown-link :href="route('country.index')">
           {{ __('Country') }}
         </x-dropdown-link>
+
+        <x-dropdown-link :href="route('mylist.show')">
+          {{ __('Comment') }}
+        </x-dropdown-link>
+
 
 
         <x-dropdown-link :href="route('delete.site')">
