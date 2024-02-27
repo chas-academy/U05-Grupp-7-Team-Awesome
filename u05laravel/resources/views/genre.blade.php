@@ -38,8 +38,7 @@
 
             <!-- Heading -->
             <h1 class="text-3xl mb-8">Genre Movies</h1>
-            <!-- Heading -->
-            <h1 class="text-3xl mb-8">Genre Movies</h1>
+          
 
             <!-- Filter Form -->
             <form action="{{ route('genre.filter') }}" method="GET" class="mb-8 flex flex-col sm:flex-row items-center">
