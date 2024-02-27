@@ -17,7 +17,7 @@ class MyListController extends Controller
      */
     public function show()
     {
-        $user_id = Auth::user()->id; //Auth kommer gå genom middleware sen
+        $user_id = Auth::user()->id; 
         $myList = MyList::where('user_id', $user_id)->first();
         $movies = $myList->movies()->get();
 
@@ -27,3 +27,4 @@ class MyListController extends Controller
         return view('mylist', ['myList' => $myList, 'movies' => $movies]);
     }
 }
+//Auth kommer gå genom middleware sen
