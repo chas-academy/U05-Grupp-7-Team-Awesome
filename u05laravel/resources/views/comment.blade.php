@@ -20,10 +20,6 @@
         </div>
         @endif
 <!-- Fetch movie details using movie ID -->
-@php
-    $movie = App\Models\Movie::find($movieId);
-@endphp
-
 @if($movie)
     <div>
         <h2>{{ $movie->title }}</h2>
@@ -65,14 +61,7 @@
         <p class="text-gray-500">No comments yet.</p>
         @endif
 
-        <!-- Add to My List button -->
-        <form action="{{ route('my_list') }}" method="POST">
-            @csrf
-            <!-- Pass movie ID to the addToMyList method -->
-            <input type="hidden" name="movie_id" value="{{ $movieId }}">
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md mt-4">
-                Add to My List
-            </button>
+        
         </form>
     </div>
 </body>
