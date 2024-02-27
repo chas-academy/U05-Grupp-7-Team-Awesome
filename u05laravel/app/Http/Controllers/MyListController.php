@@ -18,8 +18,7 @@ class MyListController extends Controller
 
             if (!$myList) {
                 return abort(404);
-
-                return view('mylist.show', ['myList' => $myList]);
         }
+        return view('mylist.show', ['myList' => $myList]);
     }
 }
