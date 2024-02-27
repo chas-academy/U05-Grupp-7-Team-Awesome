@@ -47,7 +47,7 @@ class MovieSeeder extends Seeder
             'country' => 'USA',
             'year' => '2005',
             'director' => 'Karyn Kusama',
-            'photoPath' => 'seed-moviecover/movies.jpg'
+            'photoPath' => 'seed-moviecover/Aeonflux.jpg'
 
         ]);
         DB::table('movies')->insert([
