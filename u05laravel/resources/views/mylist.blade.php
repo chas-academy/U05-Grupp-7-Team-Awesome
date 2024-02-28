@@ -56,6 +56,9 @@
                         <td class="border px-6 py-3 sm:w-1/6">
                             <a href="{{ url('/comment/'.$movie->id) }}">Comment</a>
                         </td>
+                        <td class="border px-6 py-3 sm:w-1/6">
+                        <a href="{{ url('/mylist/delete/'.$movie->id) }}">Delete</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

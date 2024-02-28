@@ -143,6 +143,10 @@ Route::middleware(['auth'])->group(function () {
 //MyList:
 // Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
+Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'deleteMovie']);
+
+//check the user that logged in, get their mylist with user id and then just detach the movie id from the pivot table
+
 
 
 
