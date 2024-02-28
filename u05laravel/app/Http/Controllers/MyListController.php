@@ -26,5 +26,12 @@ class MyListController extends Controller
         }
         return view('mylist', ['myList' => $myList, 'movies' => $movies]);
     }
+    public function addMovie($movie_id){
+        $user_id = Auth::user()->id; 
+        $myList = MyList::where('user_id', $user_id)->first();
+        $myList->movies()->attach($movie_id);
+        return redirect()->route('genre.index');
+
+    }
 }
 //Auth kommer gå genom middleware sen
