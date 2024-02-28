@@ -23,13 +23,28 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/login', function () {
-//     return view('welcome');
-// });
 
-// Route::get('/logout', function () {
-//     return view('/login');
-// });
+
+// Guest User Routes
+
+// Detta är route för login knappen på guestuser sidan
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+
+Route::get('/register', function () {
+    return view('register');
+})->name('login');
+
+
+
+
+
+Route::get('/', function () {
+    return view('guestpage');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,32 +59,98 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
+// Mike fixade Routes
+
+
+// Admin Routes
+
+
+
+Route::middleware(['admin'])->group(function () {
+    // Update Movies
+    Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+    Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
+    // Edit Movie
+    Route::get('/edit-movie', [EditMovieController::class, 'index'])->name('edit-movie');
+    Route::delete('/movies/{id}', [EditMovieController::class, 'destroy'])->name('movies.destroy');
+    // User Delete
+    Route::get('/userDelete', [UserDeleteController::class, 'index'])->name('delete.site');
+    Route::delete('/users/{id}', [UserDeleteController::class, 'destroy'])->name('delete.user');
+});
+
+
+// Användar Routes
+
+Route::middleware(['auth'])->group(function () {
+    // Top Movies
+    Route::get('/topmovie', [TopmovieController::class, 'index'])->name('topmovie.index');
+    // Genre
+    Route::get('/genre', [GenreController::class, 'index'])->name('genre.index');
+    Route::get('/genre/filter', [GenreController::class, 'filter'])->name('genre.filter');
+    Route::post('/movies/{movie}/comment', [GenreController::class, 'comment'])->name('movies.comment');
+    // Country
+    Route::get('/country', [CountryController::class, 'index'])->name('country.index');
+    Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
+    // Mylist
+    Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
+    // Comments 
+    Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
+    Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
+    Route::get('/movies/{id}', [CommentController::class, 'show'])->name('movies.show');
+    Route::post('/movies/{id}/comment', [CommentController::class, 'store'])->name('movies.comment');
+    Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovies'])->name('comments.movie');
+    Route::get('/comments', [CommentController::class, 'allMoviesComments'])->name('comments');
+
+    // Hit fåe du inte gå din jävul
+
+    // Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/login', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/logout', function () {
+//     return view('/login');
+// });
+
+
 
 // Daniel
 // comments 
-Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
-Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
-Route::get('/movies/{id}', [CommentController::class, 'show'])->name('movies.show');
-Route::post('/movies/{id}/comment', [CommentController::class, 'store'])->name('movies.comment');
-Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovies'])->name('comments.movie');
-Route::get('/comments', [CommentController::class, 'allMoviesComments'])->name('comments');
+// Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
+// Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
+// Route::get('/movies/{id}', [CommentController::class, 'show'])->name('movies.show');
+// Route::post('/movies/{id}/comment', [CommentController::class, 'store'])->name('movies.comment');
+// Route::get("/comment/{movie_id}", [CommentController::class, 'getCommentsByMovies'])->name('comments.movie');
+// Route::get('/comments', [CommentController::class, 'allMoviesComments'])->name('comments');
 
 
 //Lolo
 
 //MyList:
-Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
+// Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
-Route::get('/guestpage', function () {
-    return view('guestpage');
-});
+
 
 
 // Mohamed Abdi
 // Update country movies
 
-Route::get('/country', [CountryController::class, 'index'])->name('country.index');
-Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
+// Route::get('/country', [CountryController::class, 'index'])->name('country.index');
+// Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
 
 
 
@@ -79,9 +160,9 @@ Route::get('/country/filter', [CountryController::class, 'filter'])->name('count
 
 
 // Define your routes
-Route::get('/genre', [GenreController::class, 'index'])->name('genre.index');
-Route::get('/genre/filter', [GenreController::class, 'filter'])->name('genre.filter');
-Route::post('/movies/{movie}/comment', [GenreController::class, 'comment'])->name('movies.comment');
+// Route::get('/genre', [GenreController::class, 'index'])->name('genre.index');
+// Route::get('/genre/filter', [GenreController::class, 'filter'])->name('genre.filter');
+// Route::post('/movies/{movie}/comment', [GenreController::class, 'comment'])->name('movies.comment');
 
 
 
@@ -130,17 +211,17 @@ Route::post('/movies/{movie}/comment', [GenreController::class, 'comment'])->nam
 // Denna ska fungera om man är inlogga med role 1 altså admin. Hur kan vi kolla att det fungerar?
 // lägg in denna när de ät på riktigt 'auth', 'role:1'
 
-Route::middleware([])->group(function () {
-    // userDelete route
-    Route::get('/userDelete', [UserDeleteController::class, 'index'])->name('delete.site');
-    // UserDelete routes
-    // Denna tar fram alla användare och displayar dem på "Delete User" sidan
-    // Route::get('/userDelete', [userDeleteController::class, 'index']);
+// Route::middleware([])->group(function () {
+// userDelete route
+// Route::get('/userDelete', [UserDeleteController::class, 'index'])->name('delete.site');
+// UserDelete routes
+// Denna tar fram alla användare och displayar dem på "Delete User" sidan
+// Route::get('/userDelete', [userDeleteController::class, 'index']);
 
-    // Denna tar bort användare om du trycker på delete
-    Route::delete('/users/{id}', [UserDeleteController::class, 'destroy'])->name('delete.user');
-    // Lägg till andra routes efter behov
-});
+// Denna tar bort användare om du trycker på delete
+// Route::delete('/users/{id}', [UserDeleteController::class, 'destroy'])->name('delete.user');
+// Lägg till andra routes efter behov
+// });
 
 
 // Edit Movie
@@ -151,20 +232,19 @@ Route::middleware([])->group(function () {
 // Lägg in 'auth' i middleware sen när de är på riktigt
 
 
-Route::middleware([])->group(function () {
-    Route::get('/edit-movie', [EditMovieController::class, 'index'])->name('edit-movie');
-    Route::delete('/movies/{id}', [EditMovieController::class, 'destroy'])->name('movies.destroy');
-});
+// Route::middleware([])->group(function () {
+//     Route::get('/edit-movie', [EditMovieController::class, 'index'])->name('edit-movie');
+//     Route::delete('/movies/{id}', [EditMovieController::class, 'destroy'])->name('movies.destroy');
+// });
 
 
 // Update Movies route 
 
-Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
+// Route::get('/movies/{id}/edit', [EditMovieController::class, 'edit'])->name('movies.edit');
 
 
-// Route::put('/movies/{id}/edit', [EditMovieController::class, 'update'])->name('movies.update');
 
-Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
+// Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies.update');
 
 
 
@@ -173,6 +253,53 @@ Route::put('/movies/{id}', [EditMovieController::class, 'update'])->name('movies
 
 // Top Movie
 
-Route::middleware([])->group(function () {
-    Route::get('/topmovie', [TopmovieController::class, 'index'])->name('topmovie.index');
-});
+// Route::middleware([])->group(function () {
+//     Route::get('/topmovie', [TopmovieController::class, 'index'])->name('topmovie.index');
+// });
+
+
+// ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::middleware(['auth', 'role:1'])->group(function () {
+//     // Dina skyddade routes här
+//     Route::get('/admin/dashboard', function () {
+//         return view('admin.dashboard');
+//     })->name('admin.dashboard');
+// });
