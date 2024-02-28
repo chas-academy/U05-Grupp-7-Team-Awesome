@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MyList;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -16,11 +17,17 @@ class UserSeeder extends Seeder
     {
 
 
-        DB::table('users')->insert([
+
+
+        $mike = DB::table('users')->insert([
             'name' => 'Mike',
             'email' => 'Mike@hotmail.com',
             'password' => Hash::make('Mike'),
             'role' => 1,
+        ]);
+        MyList::create([
+            'list_name' => "Mike's list",
+            'user_id' => 1,
         ]);
 
         DB::table('users')->insert([
@@ -29,12 +36,20 @@ class UserSeeder extends Seeder
             'password' => Hash::make('Abdi'),
             'role' => 0,
         ]);
+        MyList::create([
+            'list_name' => "Abdi's list",
+            'user_id' => 2,
+        ]);
 
         DB::table('users')->insert([
             'name' => 'Lolo',
             'email' => 'Lolo@hotmail.com',
             'password' => Hash::make('Lolo'),
             'role' => 0,
+        ]);
+        MyList::create([
+            'list_name' => "Lolo's list",
+            'user_id' => 3,
         ]);
 
         DB::table('users')->insert([
@@ -43,12 +58,20 @@ class UserSeeder extends Seeder
             'password' => Hash::make('Cissi'),
             'role' => 0,
         ]);
+        MyList::create([
+            'list_name' => "Cissi's list",
+            'user_id' => 4,
+        ]);
 
         DB::table('users')->insert([
             'name' => 'Daniel',
             'email' => 'Daniel@hotmail.com',
             'password' => Hash::make('Daniel'),
             'role' => 0,
+        ]);
+        MyList::create([
+            'list_name' => "Daniel's list",
+            'user_id' => 5,
         ]);
     }
 }
