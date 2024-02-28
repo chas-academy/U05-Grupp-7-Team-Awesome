@@ -57,7 +57,6 @@
                 <thead class="hidden sm:table-header-group">
                     <tr class="bg-gray-300 sm:w-full">
                     <th class="py-2 px-4 border-b sm:table-cell">ID</th>
-                         <th class="py-2 px-4 border-b sm:table-cell">Title</th>
                         <th class="py-2 px-4 border-b sm:table-cell">Title</th>
                         <th class="py-2 px-4 border-b sm:table-cell">Genre</th>
                         <th class="py-2 px-4 border-b sm:table-cell">Country</th>
