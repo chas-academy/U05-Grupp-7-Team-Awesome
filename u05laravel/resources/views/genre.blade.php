@@ -74,13 +74,13 @@
                                 <td class="border px-6 py-3 sm:w-1/6">{{ $movie->country }}</td>
                                 <td class="border px-6 py-3 sm:w-1/6">{{ $movie->year }}</td>
                                 <td class="border px-6 py-3 sm:w-1/6">{{ $movie->director }}</td>
-                                <td class="border px-6 py-3 sm:w-1/6"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-16 h-16"></td>
+                                <td class="py-2 px-4 border-b sm:table-cell"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-21 h-auto"></td>
                                 <td class="border px-6 py-3 sm:w-1/6">
-                                    <a href="{{ url('/comment/'.$movie->id) }}">Comment</a>
+                                    <a href="{{ url('/comment/'.$movie->id) }}"class="text-white-500 hover:underline border border-blue-500 bg-blue-500 text-white px-2 py-1 rounded">Comment</a>
                                 </td>
                                 <!--AddToMyList button-->
                                 <td class="border px-6 py-3 sm:w-1/6">
-                                    <a href="{{ url('/mylist/'.$movie->id) }}">AddToMyList</a>
+                                    <a href="{{ url('/mylist/'.$movie->id) }}"class="text-white-500 hover:underline border border-blue-500 bg-green-500 text-white px-2 py-1 rounded">AddToMyList</a>
                                 </td>
 
                             </tr>
