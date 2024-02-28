@@ -7,7 +7,22 @@
     <title>All Movies Comments</title>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Scripts Navbar-->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
+<nav class="w-full">
+    @include('layouts.navigation')
+
+    <!-- Page Heading -->
+    @if (isset($header))
+    <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            {{ $header }}
+        </div>
+    </header>
+    @endif
+</nav>
 
 <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
     <div class="max-w-4xl w-full p-6 bg-white rounded-lg shadow-md">
@@ -15,7 +30,7 @@
         @foreach($movies as $movie)
         <div class="mb-6">
             <h2 class="text-xl font-semibold mb-2">{{ $movie->title }}</h2>
-            <img src="{{ asset($movie->photoPath) }}" alt="Movie Image" class="mb-4">
+            <img src="{{ asset($movie->photoPath) }}" alt="Movie Image" class="mx-auto mb-4"> <!-- Center the image -->
 
             <!-- Display Comments for this Movie -->
             @if ($movie->comments->count() > 0)
@@ -33,5 +48,8 @@
         @endforeach
     </div>
 </body>
+<div class=" w-full bg-gray-800 text-white p-4 z-50 block">
+    @include('footer')
+</div>
 
 </html>
