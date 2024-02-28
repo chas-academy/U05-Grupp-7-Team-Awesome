@@ -13,11 +13,11 @@ use Illuminate\View\View;
 class MyListController extends Controller
 {
     /*
-     * Display the specified resource.
-     */
+     
+Display the specified resource.*/
     public function show()
     {
-        $user_id = Auth::user()->id; 
+        $user_id = Auth::user()->id;
         $myList = MyList::where('user_id', $user_id)->first();
         $movies = $myList->movies()->get();
 
@@ -26,12 +26,19 @@ class MyListController extends Controller
         }
         return view('mylist', ['myList' => $myList, 'movies' => $movies]);
     }
-    public function addMovie($movie_id){
-        $user_id = Auth::user()->id; 
+    public function addMovie($movie_id)
+    {
+        $user_id = Auth::user()->id;
         $myList = MyList::where('user_id', $user_id)->first();
         $myList->movies()->attach($movie_id);
         return redirect()->route('genre.index');
-
+    }
+    public function removeMovie($movie_id)
+    {
+        $user_id = Auth::user()->id;
+        $myList = MyList::where('user_id', $user_id)->first();
+        $myList->movies()->detach($movie_id);
+        return redirect()->back();
     }
 }
 //Auth kommer gå genom middleware sen

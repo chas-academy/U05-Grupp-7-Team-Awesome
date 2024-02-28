@@ -71,7 +71,7 @@
                             <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->country }}</td>
                             <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->year }}</td>
                             <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->director }}</td>
-                            <td class="py-2 px-4 border-b sm:table-cell"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-16 h-16"></td>
+                            <td class="py-2 px-4 border-b sm:table-cell"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-21 h-auto"></td>
                             <td class="py-2 px-4 border-b sm:table-cell">
                             <a href="{{ url('/comment/'.$movie->id) }}" class="text-white-500 hover:underline border border-blue-500 bg-blue-500 text-white px-2 py-1 rounded">Comment</a</td>
                             </td>

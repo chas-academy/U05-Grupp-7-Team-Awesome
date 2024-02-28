@@ -8,6 +8,9 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\TopmovieController;
+use App\Http\Controllers\GuestpageController;
+
+
 
 use App\Http\Controllers\MyListController;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +48,7 @@ Route::get('/register', function () {
 Route::get('/', function () {
     return view('guestpage');
 });
+Route::get('/', [GuestpageController::class, 'show'])->name('guestpage.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -93,9 +97,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
     // Mylist
     Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
-    Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'deleteMovie']);
-    Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
     Route::get('/mylist/{movie_id}', [MyListController::class, 'addMovie'])->name('mylist.add');
+    Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'removeMovie'])->name('mylist.delete');
+
 
     // Comments 
     Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
