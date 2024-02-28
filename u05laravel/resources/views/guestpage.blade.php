@@ -23,7 +23,7 @@
 
 <div class="flex items-center justify-center">
 <span class="md:text-xl font-semibold">
-    Welcome to DBOM!<br>
+    Welcome to DBOM -> DataBase of Movies!<br>
     You can browse our movie library here.<br>
     If you wanna review or rate please Login or Register in the right corner!
 </span>
