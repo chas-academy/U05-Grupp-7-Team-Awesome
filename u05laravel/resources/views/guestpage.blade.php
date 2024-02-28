@@ -14,10 +14,12 @@
 
 <body>
 
+<!--
 <div>
     <textarea>If you wanna make comments or review or movies pleasse login or register!</textarea>
     <button>Login/Register</button>
 </div>
+-->
 
     <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-white-900">
 
