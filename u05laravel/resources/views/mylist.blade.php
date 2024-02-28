@@ -62,7 +62,7 @@
                                 <a href="{{ url('/comment/'.$movie->id) }}" class="text-white-500 hover:underline border border-blue-500 bg-blue-500 text-white px-2 py-1 rounded">Comment</a>
                             </td>
                             <td class="border px-6 py-3 sm:w-1/8">
-                                <a href="{{ url('/mylist/delete/'.$movie->id) }}" class="text-white-500 hover:underline border border-blue-500 bg-red-500 text-white px-2 py-1 rounded">Delete</a>
+                                <a href="{{ route('mylist.delete', ['movie_id' => $movie->id]) }}" class="text-white-500 hover:underline border border-blue-500 bg-red-500 text-white px-2 py-1 rounded">Delete</a>
                             </td>
                         </tr>
                         @endforeach
