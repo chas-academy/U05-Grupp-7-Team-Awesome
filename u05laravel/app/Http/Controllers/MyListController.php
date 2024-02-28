@@ -30,6 +30,7 @@ class MyListController extends Controller
         $user_id = Auth::user()->id; 
         $myList = MyList::where('user_id', $user_id)->first();
         $myList->movies()->attach($movie_id);
+        $myList->movies()->detach($movie_id);
         return redirect()->route('genre.index');
 
     }
