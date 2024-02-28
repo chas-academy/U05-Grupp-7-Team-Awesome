@@ -51,42 +51,46 @@
 
 
 
-        <!-- Responsive Table -->
-        <div class="overflow-x-auto flex justify-center">
-            <table class="w-full sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 bg-gray border-collapse border border-gray-300 sm:rounded-lg">
-                <thead class="hidden sm:table-header-group">
-                    <tr class="bg-gray-300 sm:w-full">
-                    <th class="py-2 px-4 border-b sm:table-cell">ID</th>
-                        <th class="py-2 px-4 border-b sm:table-cell">Title</th>
-                        <th class="py-2 px-4 border-b sm:table-cell">Genre</th>
-                        <th class="py-2 px-4 border-b sm:table-cell">Country</th>
-                        <th class="py-2 px-4 border-b sm:table-cell">Release Year</th>
-                        <th class="py-2 px-4 border-b sm:table-cell">Director</th>
-                        <th class="py-2 px-4 border-b sm:table-cell">Photo</th>
-                        <th class="py-2 px-4 border-b sm:table-cell">Comment</th>
-                    </tr>
-                </thead>
-                <tbody class="sm:table-row-group">
-                    @foreach ($movies as $movie)
-                    <tr class="hover:bg-gray-100 sm:table-row flex flex-col w-full">
-                    <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->id }}</td>
-                        <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->titel }}</td>
-                        <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->genre }}</td>
-                        <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->country }}</td>
-                        <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->year }}</td>
-                        <td class="py-2 px-4 border-b sm:table-cell">{{ $movie->director }}</td>
-                        <td class="py-2 px-4 border-b sm:table-cell"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-16 h-16"></td>
-                        <td class="py-2 px-4 border-b sm:table-cell">
-                            <a href="{{ url('/comment/'.$movie->id) }}">Comment</a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+                <!-- Responsive Table -->
+                <div class="overflow-x-auto flex justify-center">
+                    <table class="w-full sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 bg-gray border-collapse border border-gray-300 sm:rounded-lg">
+                        <thead class="hidden sm:table-header-group">
+                            <tr class="hover:bg-gray-100 sm:table-row flex flex-col w-full">
+                                <th class="px-6 py-3 text-left sm:w-1/6">Title</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">Genre</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">Country</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">Release Year</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">Director</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">Photo</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">Comment</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">My List</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($movies as $movie)
+                            <tr class="hover:bg-gray-100 sm:table-row flex flex-col w-full">
+                                <td class="border px-6 py-3 sm:w-1/6">{{ $movie->titel }}</td>
+                                <td class="border px-6 py-3 sm:w-1/6">{{ $movie->genre }}</td>
+                                <td class="border px-6 py-3 sm:w-1/6">{{ $movie->country }}</td>
+                                <td class="border px-6 py-3 sm:w-1/6">{{ $movie->year }}</td>
+                                <td class="border px-6 py-3 sm:w-1/6">{{ $movie->director }}</td>
+                                <td class="border px-6 py-3 sm:w-1/6"><img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }}" class="w-16 h-16"></td>
+                                <td class="border px-6 py-3 sm:w-1/6">
+                                    <a href="{{ url('/comment/'.$movie->id) }}">Comment</a>
+                                </td>
+                                <!--AddToMyList button-->
+                                <td class="border px-6 py-3 sm:w-1/6">
+                                    <a href="{{ url('/mylist/'.$movie->id) }}">AddToMyList</a>
+                                </td>
 
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
 
 <div class=" w-full bg-gray-800 text-white p-4 z-50 block">
     @include('footer')
