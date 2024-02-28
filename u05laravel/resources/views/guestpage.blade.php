@@ -14,8 +14,9 @@
 
 <body>
 
-<div>
-    <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded inline-block mt-4 mr-4">Login</a>
-<a href="{{ route('register') }}" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded inline-block mt-4">Register</a>
+    <div>
+        <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded inline-block mt-4 mr-4">Login</a>
+        <a href="{{ route('register') }}" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded inline-block mt-4">Register</a>
     </div>
+
 </html>
