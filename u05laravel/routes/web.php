@@ -93,6 +93,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
     // Mylist
     Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
+    Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'deleteMovie']);
+    Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
+    Route::get('/mylist/{movie_id}', [MyListController::class, 'addMovie'])->name('mylist.add');
+
     // Comments 
     Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
     Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
@@ -143,13 +147,13 @@ Route::middleware(['auth'])->group(function () {
 //MyList:
 // Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
-Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'deleteMovie']);
+// Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'deleteMovie']);
 
 //check the user that logged in, get their mylist with user id and then just detach the movie id from the pivot table
 
 
-Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
-Route::get('/mylist/{movie_id}', [MyListController::class, 'addMovie'])->name('mylist.add');
+// Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
+// Route::get('/mylist/{movie_id}', [MyListController::class, 'addMovie'])->name('mylist.add');
 
 
 // Mohamed Abdi
