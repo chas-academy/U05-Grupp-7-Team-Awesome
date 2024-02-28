@@ -57,8 +57,12 @@ Route::get('/comments', [CommentController::class, 'allMoviesComments'])->name('
 
 //Lolo
 
-
+//MyList:
 Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
+
+Route::get('/guestpage', function () {
+    return view('guestpage');
+});
 
 
 // Mohamed Abdi
@@ -66,9 +70,6 @@ Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
 Route::get('/country', [CountryController::class, 'index'])->name('country.index');
 Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
-
-
-
 
 
 
