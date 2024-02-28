@@ -59,6 +59,7 @@ Route::get('/comments', [CommentController::class, 'allMoviesComments'])->name('
 
 
 Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
+Route::get('/mylist/{movie_id}', [MyListController::class, 'addMovie'])->name('mylist.add');
 
 
 // Mohamed Abdi

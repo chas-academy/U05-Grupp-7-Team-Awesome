@@ -60,6 +60,7 @@
                                 <th class="px-6 py-3 text-left sm:w-1/6">Director</th>
                                 <th class="px-6 py-3 text-left sm:w-1/6">Photo</th>
                                 <th class="px-6 py-3 text-left sm:w-1/6">Comment</th>
+                                <th class="px-6 py-3 text-left sm:w-1/6">My List</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +75,11 @@
                                 <td class="border px-6 py-3 sm:w-1/6">
                                     <a href="{{ url('/comment/'.$movie->id) }}">Comment</a>
                                 </td>
+                                <!--AddToMyList button-->
+                                <td class="border px-6 py-3 sm:w-1/6">
+                                    <a href="{{ url('/mylist/'.$movie->id) }}">AddToMyList</a>
+                                </td>
+
                             </tr>
                             @endforeach
                         </tbody>
