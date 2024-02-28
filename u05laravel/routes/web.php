@@ -8,6 +8,9 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\TopmovieController;
+use App\Http\Controllers\GuestpageController;
+
+
 
 use App\Http\Controllers\MyListController;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +48,7 @@ Route::get('/register', function () {
 Route::get('/', function () {
     return view('guestpage');
 });
+Route::get('/', [GuestpageController::class, 'show'])->name('guestpage.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

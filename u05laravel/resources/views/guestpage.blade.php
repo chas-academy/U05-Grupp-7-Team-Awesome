@@ -12,25 +12,31 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 
-<body>
-
+<body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
     <div class="flex justify-end p-4">
-
         <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded inline-block mt-4 mr-4">Login</a>
         <a href="{{ route('register') }}" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded inline-block mt-4">Register</a>
-
     </div>
 
-    <div class="flex items-center justify-center">
-        <span class="md:text-xl font-semibold">
-            Welcome to DBOM -> DataBase of Movies!<br>
-            You can browse our movie library here.<br>
-            If you wanna review or rate please Login or Register in the right corner!
-        </span>
+    <div class="flex items-center justify-center mb-8 bg-white rounded-lg shadow-lg p-6">
+    <span class="md:text-xl font-semibold text-center">
+        Welcome to DBOM -> DataBase of Movies!<br>
+        You can browse our movie library here.<br>
+        If you wanna review or rate please Login or Register in the right corner!
+    </span>
+</div>
+
+    
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center">
+        @foreach ($movies as $index => $movie)
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl font-semibold mb-2">{{ $movie->title }}</h2>
+            <img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->title }} Image" class="mx-auto mb-4 w-full h-auto object-contain rounded-lg">
+            <p class="text-center">{{ $movie->title }}</p> <!-- Add the title below the image -->
+        </div>
+        @endforeach
     </div>
-
-    <!-- Movie table here -->
-
 </body>
 
 </html>
