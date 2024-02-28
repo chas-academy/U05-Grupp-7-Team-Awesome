@@ -10,6 +10,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\TopmovieController;
 
 use App\Http\Controllers\MyListController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------

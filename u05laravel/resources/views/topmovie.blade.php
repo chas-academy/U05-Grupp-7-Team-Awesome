@@ -39,7 +39,7 @@
             @foreach ($movies as $movie)
             <div class="mb-6 lg:mb-8 w-full max-w-md mx-auto  flex flex-col items-center justify-center">
                 <h2 class="text-xl lg:text-2xl font-semibold mb-2">{{ $movie->title }}</h2>
-                <p class="text-sm lg:text-lg">Genomsnittlig rating: {{ $movie->comments_avg_rating }}</p>
+                <p class="text-sm lg:text-lg">Rating: {{ $movie->comments_avg_rating }}</p>
 
                 <!-- Visa annan relevant information om filmen här -->
                 <p class="text-sm lg:text-lg mb-2"> {{ $movie->titel }}</p>
@@ -49,5 +49,10 @@
             </div>
             @endforeach
         </div>
+    </body>
 
+    <footer class=" w-full bg-gray-800 text-white p-4 z-50">
         @include('footer')
+    </footer>
+
+</html>

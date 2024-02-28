@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,16 +27,18 @@
 <div class="min-h-screen bg-gray-100 ">
 
 
-    <div class="flex flex-col min-h-screen items-center justify-center bg-gray-100 dark:bg-white-900">
-        <form action="{{ route('movies.update', ['id' => $movie->id]) }}" method="POST" class="max-w-md mx-auto bg-white p-8 shadow-md rounded-md mt-4">
-            <!-- Your form content goes here -->
-
+    <div class="flex flex-col min-h-screen items-center justify-center bg-gray-100 dark:bg-white-900 ">
+        <form action="{{ route('movies.update', ['id' => $movie->id]) }}" method="POST" class="max-w-2xl w-full mx-auto bg-white p-8 shadow-md rounded-md mt-4">
 
 
 
             @csrf
             @method('PUT')
 
+            <div class="flex flex-col items-center justify-center">
+                <h1 class="text-3xl font-bold text-red-500">Update</h1>
+                <img src="{{ asset($movie->photoPath) }}" alt="{{ $movie->titel }}" class="w-40 h-auto mb-4 block my-4">
+            </div>
             <div class="mb-4">
                 <label for="titel" class="block text-sm font-bold text-gray-600">Titel:</label>
                 <input type="text" name="titel" id="titel" value="{{ $movie->titel }}" class="w-full mt-1 p-2 border rounded-md">
@@ -62,5 +67,10 @@
             <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Uppdatera film</button>
         </form>
     </div>
+</div>
 
+<footer class=" w-full bg-gray-800 text-white p-4 z-50">
     @include('footer')
+</footer>
+
+</html>
