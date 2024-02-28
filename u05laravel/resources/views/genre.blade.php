@@ -28,25 +28,28 @@
 
 
 <body>
+<div class="flex flex-col min-h-screen items-center justify-center bg-gray-100 dark:bg-white-900 mx-auto">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 mx-auto">
 
-    <div class="flex flex-col min-h-screen items-start justify-center bg-gray-100 dark:bg-white-900 mx-auto">
-        <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-white-900 mx-auto">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 mx-auto">
+        <!-- Heading -->
+        <h1 class="text-3xl mb-8 flex justify-center" style="color: #ff0000;">Genre Movies</h1>
 
-                <!-- Heading -->
-                <h1 class="text-3xl mb-8 flex justify-center">Genre Movies</h1>
+        <!-- Filter Form -->
+        <form action="{{ route('genre.filter') }}" method="GET" class="mb-8 flex flex-col sm:flex-row items-center justify-center">
+    <label for="genre" class="mr-2">Select Genre:</label>
+    <div class="flex">
+        <select name="genre" id="genre" class="flex-grow bg-gray-300 text-black p-2 mb-2 sm:mb-0 mr-2 rounded-md border border-gray-300 focus:outline-none">
+            <option value="">All</option>
+            @foreach ($genres as $genre)
+            <option value="{{ $genre }}">{{ $genre }}</option>
+            @endforeach
+        </select>
+        <button type="submit" class="bg-gray-300 text-black px-4 py-2 rounded-md border border-gray-300 focus:outline-none">Filter</button>
+    </div>
+</form>
 
-                <!-- Filter Form -->
-                <form action="{{ route('genre.filter') }}" method="GET" class="mb-8 flex flex-col sm:flex-row items-center flex justify-center">
-                    <label for="genre" class="mr-4">Select Genre:</label>
-                    <select name="genre" id="genre" class="rounded-md bg-gray-500 text-black p-2 mb-2 sm:mb-0">
-                        <option value="">All</option>
-                        @foreach ($genres as $genre)
-                        <option value="{{ $genre }}">{{ $genre }}</option>
-                        @endforeach
-                    </select>
-                    <button type="submit" class="bg-gray-500 text-black px-4 py-2 rounded-md ml-0 sm:ml-4">Filter</button>
-                </form>
+
+
 
                 <!-- Responsive Table -->
                 <div class="overflow-x-auto flex justify-center">

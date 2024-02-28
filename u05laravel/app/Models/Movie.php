@@ -14,11 +14,17 @@ class Movie extends Model
     protected $table = 'movies';
     protected $fillable = ['title', 'genre', 'country', 'year', 'director', 'photo'];
     // Define the relationship with MyList model     
+    
     public function mylists(): BelongsToMany
     {
         return $this->belongsToMany(MyList::class);
     }
 
+    //Is this right?
+    public function guestpagefunction(): BelongsToMany
+    {
+        return $this->belongsToMany(Movie::class);
+    }
 
 
 
