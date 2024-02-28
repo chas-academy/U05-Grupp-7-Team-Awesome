@@ -20,20 +20,14 @@ class Movie extends Model
         return $this->belongsToMany(MyList::class);
     }
 
-    //Is this right?
-    public function guestpagefunction(): BelongsToMany
+   
+    /*Is this right??
+
+    public function guestpageview(): BelongsToMany
     {
         return $this->belongsToMany(Movie::class);
     }
-
-
-
-
-
-
-    // 
-
-
+    */
 
 
     // Denna funktion möjliggör att jag kan komma åt comment table och dess columner eller värden tack vare

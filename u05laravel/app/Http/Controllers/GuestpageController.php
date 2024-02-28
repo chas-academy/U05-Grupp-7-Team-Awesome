@@ -7,7 +7,7 @@ use App\Models\Movie;
 
 class GuestpageController extends Controller
 {
-    public function show()
+    public function index()
     {
         $movies = Movie::all();
         return view('guestpage', compact('movies'));
