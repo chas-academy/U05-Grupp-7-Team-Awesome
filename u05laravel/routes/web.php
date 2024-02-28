@@ -97,7 +97,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/country/filter', [CountryController::class, 'filter'])->name('country.filter');
     // Mylist
     Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
-    Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'deleteMovie']);
+    Route::get('/mylist/{movie_id}', [MyListController::class, 'addMovie'])->name('mylist.add');
 
 
     // Comments 
