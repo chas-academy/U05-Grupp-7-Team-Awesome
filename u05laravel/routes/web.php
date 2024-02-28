@@ -68,9 +68,6 @@ Route::get('/country/filter', [CountryController::class, 'filter'])->name('count
 
 
 
-
-
-
 // mohamed adbi 
 // genre update 
 
