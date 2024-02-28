@@ -31,13 +31,13 @@
 <body>
 
     <div class="overflow-x-auto">
-    <div class="flex flex-col min-h-screen items-center justify-center bg-gray-100 dark:bg-white-900 mx-auto">
+        <div class="flex flex-col min-h-screen items-center justify-center bg-gray-100 dark:bg-white-900 mx-auto">
             <!-- Heading -->
             <h1 class="text-3xl mb-8 flex justify-center" style="color: #ff0000;">My Saved Movies:</h1>
             <!-- Responsive Table -->
             <div class="overflow-x-auto flex justify-center">
-              <table class="w-full sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 bg-gray border-collapse border border-gray-300 sm:rounded-lg">
-              <thead class="hidden sm:table-header-group">
+                <table class="w-full sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 bg-gray border-collapse border border-gray-300 sm:rounded-lg">
+                    <thead class="hidden sm:table-header-group">
                         <tr class="bg-gray-300 sm:w-full">
                             <th class="py-2 px-4 border-b sm:table-cell">Title</th>
                             <th class="py-2 px-4 border-b sm:table-cell">Genre</th>
@@ -79,7 +79,7 @@
 <div class=" w-full bg-gray-800 text-white p-4 z-50 block">
     @include('footer')
 </div>
-  
+
 </div>
 
 
