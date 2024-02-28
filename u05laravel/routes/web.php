@@ -98,6 +98,7 @@ Route::middleware(['auth'])->group(function () {
     // Mylist
     Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
     Route::get('/mylist/{movie_id}', [MyListController::class, 'addMovie'])->name('mylist.add');
+    Route::get('/mylist/delete/{movie_id}', [MyListController::class, 'removeMovie'])->name('mylist.delete');
 
 
     // Comments 
