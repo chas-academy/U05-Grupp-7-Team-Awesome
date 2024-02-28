@@ -59,8 +59,9 @@ Route::get('/comments', [CommentController::class, 'allMoviesComments'])->name('
 //MyList:
 Route::get('/mylist', [MyListController::class, 'show'])->name('mylist.show');
 
-//Guest Page:
-Route::get('/guestpage', 'GuestpageController@show')->name('guestpage');
+Route::get('/guestpage', function () {
+    return view('guestpage');
+});
 
 
 // Mohamed Abdi
