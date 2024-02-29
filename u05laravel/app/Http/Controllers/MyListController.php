@@ -16,29 +16,28 @@ class MyListController extends Controller
      
 Display the specified resource.*/
     public function show()
-    {
+    {   //Displayas i mylist blade
         $user_id = Auth::user()->id;
         $myList = MyList::where('user_id', $user_id)->first();
         $movies = $myList->movies()->get();
 
         if (!$myList) {
-            return abort(404); //Ändra till om listan är tom gå och lägg till filmer
+            return abort(404);
         }
         return view('mylist', ['myList' => $myList, 'movies' => $movies]);
     }
     public function addMovie($movie_id)
-    {
+    {      //Lägger till Mylist 
         $user_id = Auth::user()->id;
         $myList = MyList::where('user_id', $user_id)->first();
         $myList->movies()->attach($movie_id);
         return redirect()->route('genre.index');
     }
     public function removeMovie($movie_id)
-    {
+    {   //Deletar film från Mylist
         $user_id = Auth::user()->id;
         $myList = MyList::where('user_id', $user_id)->first();
         $myList->movies()->detach($movie_id);
         return redirect()->back();
     }
 }
-//Auth kommer gå genom middleware sen
