@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Daniel-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 <!-- Scripts Navbar-->
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-
+<!-- For the navbar to work-->
 <nav class="w-full">
     @include('layouts.navigation')
 
@@ -42,12 +42,13 @@
         @php
         $movie = App\Models\Movie::find($movieId);
         @endphp
-
+        <!-- Checks if the movie exists. If it does it will forward the movie title and image -->
         @if($movie)
         <div>
             <h2>{{ $movie->title }}</h2>
             <img src="{{ asset($movie->photoPath) }}" alt="Movie Image">
         </div>
+         <!-- If it doesnt find it it will indicate the message below -->
         @else
         <p>Movie not found.</p>
         @endif
