@@ -19,3 +19,5 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 }
+
+// I denna kan man ropa på Seederfilerna som har skapats och detta gör att alla de körs sammtidigt

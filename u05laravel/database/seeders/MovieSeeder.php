@@ -6,6 +6,11 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+
+// Mike
+// Detta är en seeder för att lägga in lite dummie Filmer in i databasen
+
+
 class MovieSeeder extends Seeder
 {
     /**

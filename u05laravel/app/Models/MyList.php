@@ -17,6 +17,12 @@ class MyList extends Model
     public function movies()
     {
         return $this->belongsToMany(Movie::class)
-            ->withPivot('movie_id', 'my_list_id'); // Använd relevanta kolumnnamn från pivot-tabellen här
+            ->withPivot('movie_id', 'my_list_id');
     }
 }
+
+
+// Mike
+
+// BelongsToMany definerar att en lista kan vara kopplad till många filmer och tvärt om.
+// ->withPivot tar med kolumner från den mellanliggandelistan för att koppla ihop listor och filmer

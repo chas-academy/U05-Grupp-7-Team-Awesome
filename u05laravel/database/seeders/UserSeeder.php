@@ -8,6 +8,10 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+// Mike
+// Detta är en seeder för att lägga in lite Users in i databasen. Som ni ser så har Mike role 1 och detta gör att 
+// Jag blir Admin
+
 class UserSeeder extends Seeder
 {
     /**

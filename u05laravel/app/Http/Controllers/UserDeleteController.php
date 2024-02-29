@@ -30,3 +30,9 @@ class UserDeleteController extends Controller
         }
     }
 }
+
+
+// Mike
+
+// I denna Controller finns en index(); som hittar alla användare från tabellen Users i databasen och displayar dom.
+// Det finns även en distroy i den finns ($id)  i a taggen som skickas hit finns id med från den taggen som skickas till controllern om usern.
