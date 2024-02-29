@@ -32,9 +32,10 @@
             <h2 class="text-xl font-semibold mb-2">{{ $movie->title }}</h2>
             <img src="{{ asset($movie->photoPath) }}" alt="Movie Image" class="mx-auto mb-4"> <!-- Center the image -->
 
-            <!-- Display Comments for this Movie -->
+               <!-- Display Comments for this Movie -->
             @if ($movie->comments->count() > 0)
             <h3 class="text-lg font-semibold mb-2">Comments</h3>
+               <!--Blade loop iterates movie comments, accessing each comment via $comment.  -->
             @foreach($movie->comments as $comment)
             <div class="bg-gray-50 rounded-lg p-4 mb-4">
                 <p class="text-gray-700">{{ $comment->comment }}</p>
