@@ -53,36 +53,38 @@
         @endif
         <!-- Comment Form -->
         <form action="{{ route('comments.store') }}" method="POST" class="space-y-4">
-            @csrf
-            <!-- Pass movie ID to the store method -->
-            <input type="hidden" name="movie_id" value="{{ $movieId }}">
-            <div>
-                <label for="rating" class="block text-sm font-medium text-gray-700">Rating:</label>
-                <input type="number" name="rating" id="rating" min="1" max="5" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
-            </div>
-            <div>
-                <label for="content" class="block text-sm font-medium text-gray-700">Comment:</label>
-                <textarea name="content" id="content" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
-            </div>
-            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Submit
-            </button>
-        </form>
+    @csrf
+    <!-- Pass movie ID to the store method -->
+    <input type="hidden" name="movie_id" value="{{ $movie->id }}">
+    <div>
+        <label for="rating" class="block text-sm font-medium text-gray-700">Rating:</label>
+        <input type="number" name="rating" id="rating" min="1" max="5" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+    </div>
+    <div>
+        <label for="comment" class="block text-sm font-medium text-gray-700">Comment:</label>
+        <textarea name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
+    </div>
+    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Submit
+    </button>
+</form>
 
         <hr class="my-6">
 
         <!-- Display Existing Comments -->
         @if ($comments->count() > 0)
-        <h2 class="text-xl font-semibold mb-2">Comments</h2>
-        @foreach($comments as $comment)
-        <div class="bg-gray-50 rounded-lg p-4 mb-4">
-            <p class="text-lg font-semibold">Rating: {{ $comment->rating }}</p>
-            <p class="text-gray-700">{{ $comment->comment }}</p>
-        </div>
-        @endforeach
-        @else
-        <p class="text-gray-500">No comments yet.</p>
+    <h2 class="text-xl font-semibold mb-2">Comments</h2>
+    @foreach($comments as $comment)
+        @if ($comment->movie_id == $movieId)
+            <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                <p class="text-lg font-semibold">Rating: {{ $comment->rating }}</p>
+                <p class="text-gray-700">{{ $comment->comment }}</p>
+            </div>
         @endif
+    @endforeach
+@else
+    <p class="text-gray-500">No comments yet.</p>
+@endif
 
 
         </form>
