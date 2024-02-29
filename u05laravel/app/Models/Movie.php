@@ -16,11 +16,11 @@ class Movie extends Model
     // Define the relationship with MyList model     
 
     public function mylists(): BelongsToMany
-    {
+    {   //Definerar relation med mylist
         return $this->belongsToMany(MyList::class);
     }
 
-    //Is this right?
+    //Defiinerar relation med guestpage och dess filmer där
     public function guestpagefunction(): BelongsToMany
     {
         return $this->belongsToMany(Movie::class);
@@ -31,8 +31,8 @@ class Movie extends Model
 
 
 
-    // 
-
+    //Movie modell kopplad med flera av Controllersna
+    
 
 
     //Mike 
