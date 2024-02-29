@@ -65,3 +65,11 @@ return new class extends Migration
         Schema::dropIfExists('my_lists');
     }
 };
+
+
+// Mike
+
+// Jag tyckte jag var riktigt smart och implementerade inte in Foregien keys i borden olika migrationer
+// Utan jag gjorde hör istället en egen migration bara för foregien keys.
+// Jag hade en tanke om att detta skulle göra den enklare och mer skalbart om man hade velat lägga till eller ta bort dessa.
+// Jag använde ->onDelete('cascade') som gör så att om man deletar id med denna funktion i en tabell så deletas detta in från alla tabeller som det finns i.

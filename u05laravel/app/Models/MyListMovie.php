@@ -30,3 +30,9 @@ class MyListMovie extends Model
     return $this->belongsTo(Movie::class, 'movie_id');
   }
 }
+
+
+// Mike
+
+// Belongs to visar från vilka tabeller dessa två olika id kommer från.
+// Detta används i pivot table för att följa kopplingarna mellan de olika tabellerna.

@@ -26,3 +26,10 @@ class Comment extends Model
         return $this->belongsTo(Movie::class);
     }
 }
+
+// Mike
+
+// Dessa rellationer behövs för att visa relationen mellan tabellerna för att
+// Eloquent ORM ska kunna fungera. Vi fick tex problem med att deleta användare om de hade gjort en kommentar.
+// Dessa relationer gör tex att om man tar bort en användare förstår då tack vare denna relation Eloquent ORM att
+// den också ska ta bort användarens kommentarer detta kallas cascading deletes.

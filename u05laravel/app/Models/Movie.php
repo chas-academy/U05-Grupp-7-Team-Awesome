@@ -14,7 +14,7 @@ class Movie extends Model
     protected $table = 'movies';
     protected $fillable = ['title', 'genre', 'country', 'year', 'director', 'photo'];
     // Define the relationship with MyList model     
-    
+
     public function mylists(): BelongsToMany
     {
         return $this->belongsToMany(MyList::class);
@@ -35,6 +35,7 @@ class Movie extends Model
 
 
 
+    //Mike 
 
     // Denna funktion möjliggör att jag kan komma åt comment table och dess columner eller värden tack vare
     // att pk från Movie är kopplat med foregin key in till Comment. Detta möjliggör att man kan komma åt specifika användare och dess kommentarer eller rating
