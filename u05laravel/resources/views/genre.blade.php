@@ -35,15 +35,18 @@
             <h1 class="text-3xl mb-8 flex justify-center" style="color: #ff0000;">Genre Movies</h1>
 
             <!-- Filter Form -->
+            <!-- Detta formulär används för att filtrera filmer baserat på vald genre. -->
             <form action="{{ route('genre.filter') }}" method="GET" class="mb-8 flex flex-col sm:flex-row items-center justify-center">
                 <label for="genre" class="mr-2">Select Genre:</label>
                 <div class="flex">
+                    <!-- Dropdown-lista för att välja genre -->
                     <select name="genre" id="genre" class="flex-grow bg-gray-300 text-black p-2 mb-2 sm:mb-0 mr-2 rounded-md border border-gray-300 focus:outline-none">
                         <option value="">All</option>
                         @foreach ($genres as $genre)
                         <option value="{{ $genre }}">{{ $genre }}</option>
                         @endforeach
                     </select>
+                    <!-- Knapp för att filtrera filmer baserat på vald genre -->
                     <button type="submit" class="bg-gray-300 text-black px-4 py-2 rounded-md border border-gray-300 focus:outline-none">Filter</button>
                 </div>
             </form>
