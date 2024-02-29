@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
         $myList = MyList::create([
             'list_name' => "$user->name's list",
             'user_id' => $user->id,
-        ]);
+        ]); //ex display: Lolo's list
 
         event(new Registered($user));
 
