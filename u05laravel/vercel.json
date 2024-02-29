@@ -10,6 +10,10 @@
             "dest": "/public/build/"
         },
         {
+            "src": "/seed-moviecover(.*)",
+            "dest": "/public/seed-moviecover/"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
