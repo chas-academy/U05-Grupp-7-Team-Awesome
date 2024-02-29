@@ -1,20 +1,32 @@
 <?php
 
+
 namespace App\Models;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class MyListMovie extends Model
 {
+  use HasFactory;
 
-    // Define the relationship with MyList model
-    //public function mylisttable()
-    //{
-      //  return $this->belongsToMany(MyList::class)
-           //         ->withPivot('user_id' ); // Lägg till alla relevanta kolumnnamn från pivot-tabellen här
-    //}
 
-    // Specify the fillable attributes
-    protected $fillable = ['title', 'genre', 'country', 'year', 'director', 'photo'];
+  // Definiera fält som är fyllbara
+  protected $fillable = ['title', 'genre', 'country', 'year', 'director', 'photo', 'user_id'];
+
+
+  // Definiera relationen till MyList-modellen
+  public function myList()
+  {
+    return $this->belongsTo(MyList::class, 'my_list_id');
+  }
+
+
+  // Definiera relationen till Movie-modellen
+  public function movie()
+  {
+    return $this->belongsTo(Movie::class, 'movie_id');
+  }
 }
