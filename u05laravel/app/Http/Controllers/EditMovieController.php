@@ -16,50 +16,10 @@ class EditMovieController extends Controller
         return view('edit-movie', compact('movies'));
     }
 
+    // Mike
 
+    // Id i edit tar in filmens id från knapptrycket och får upp information om filmen.
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //redirectar till view med formulär, för admin
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //adds movies, för admin
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //hämtar spcifik film, och läser ut filer i view
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-
-
-
-    // Denna används för att göra Edit förfrågan edit-movie.blade.php och länkas visare till update-movie.blade.php
-
-    // Routen klar börja med att göra formuläret och kunna få ut de värden som skickas in fixa så att dessa saker kommer upp i fällt så att man kkan se dom och editera altså
-    //  gå ini update-movie blade fil
-
-    // public function edit(string $id)
-    // {
-    //     $movie = Movie::find($id);
-
-    //     // Kontrollera om filmen hittades
-    //     return view('update-movie', compact('movie'));
-    // }
 
     public function edit($id)
     {
@@ -69,42 +29,10 @@ class EditMovieController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, string $id)
-    // {
-    //     // Uppdatera filmen i databasen utan validering
-    //     Movie::where('id', $id)->update($request->except(['_token', '_method']));
+    // Mike
 
-    //     // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
-    //     return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
-    // }
-
-    // public function update(Request $request, string $id)
-    // {
-    //     // Uppdatera filmen i databasen utan validering
-    //     Movie::where('id', $id)->update($request->except(['_token', '_method']));
-
-    //     // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
-    //     return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
-    // }
-
-
-    // public function update(Request $request, string $id)
-    // {
-    //     // Validera om det behövs
-
-    //     // Uppdatera filmen i databasen
-    //     Movie::where('id', $id)->update([
-    //         'field1' => $request->input('field1'),
-    //         'field2' => $request->input('field2'),
-    //         // Uppdatera med fler fält om det behövs
-    //     ]);
-
-    //     // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
-    //     return redirect()->route('movies.edit', ['id' => $id])->with('success', 'Film updated successfully.');
-    // }
+    // Update tar emot 2 parametrar de ena är filmens id och det andra är den uppdaterade informationen
+    // ValidateData kollar så att den informationen som kommer in har tex max 155 tecken eller att year är en iteger.
 
 
     public function update(Request $request, string $id)
@@ -121,17 +49,13 @@ class EditMovieController extends Controller
         // Uppdatera filmen i databasen
         Movie::where('id', $id)->update($validatedData);
 
-        // Omdirigera tillbaka till redigeringssidan med ett meddelande om att uppdateringen lyckades
-        // return redirect()->route('edit-movie', ['id' => $id])->with('success', 'Film updated successfully.');
-
-        // return redirect()->route('edit-movie')->with('success', 'Film updated successfully.');k
 
         return redirect()->action([EditMovieController::class, 'index'])->with('success', 'Film updated successfully.');
-
-
-        // return view('update-movie', compact('movie'));
     }
 
+    // Mike
+
+    // Sestroy söker upp filmen efter id och tar bort den.
 
 
     /**

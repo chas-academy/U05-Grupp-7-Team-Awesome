@@ -31,3 +31,8 @@ return new class extends Migration
         Schema::dropIfExists('personal_access_tokens');
     }
 };
+
+// Mike
+
+// Detta är en migration, denna migration har en upp för att kunna migreras up och en down för 
+// att kunna rollas back och man vill ändra den eller ta bort den. 

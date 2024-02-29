@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 
-    <!-- Lägg till följande meta-taggar för att se till att mobila webbläsare använder den senaste renderingmotorn -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -50,7 +49,6 @@
                     @endif
                     @endif
                     @endforeach
-                    <!-- Extra cell to cover the empty space -->
                     <th class="py-2 px-4 border-b sm:table-cell"></th>
                 </tr>
             </thead>

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 
-    <!-- Lägg till följande meta-taggar för att se till att mobila webbläsare använder den senaste renderingmotorn -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -32,7 +31,6 @@
 
     <body class="font-sans antialiased">
 
-        <!-- topmovie.blade.php -->
 
         <div class="p-4 lg:p-8 flex flex-col items-center justify-center">
             <h1 class="text-3xl lg:text-4xl mb-4 lg:mb-8">Top Movies</h1>
@@ -41,7 +39,7 @@
                 <h2 class="text-xl lg:text-2xl font-semibold mb-2">{{ $movie->title }}</h2>
                 <p class="text-sm lg:text-lg">Rating: {{ $movie->comments_avg_rating }}</p>
 
-                <!-- Visa annan relevant information om filmen här -->
+
                 <p class="text-sm lg:text-lg mb-2"> {{ $movie->titel }}</p>
 
                 <!-- Visa filmens foto -->

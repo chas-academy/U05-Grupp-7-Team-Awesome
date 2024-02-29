@@ -6,6 +6,9 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Comment;
 
+// Mike
+// Detta är en seeder för att lägga in lite dummie kommentarer och rating
+
 class CommentsTableSeeder extends Seeder
 {
     public function run()

@@ -13,7 +13,7 @@ class TopmovieController extends Controller
 
     //  Tack vare kopplingarna mellan borde i modellen kan man med Eloquent ORM använda sig av denna metod som heter
     // withAvg(); den går in i comments tabellen och känner av hur många som har get betyg till respektive film
-    // Den summerar sedan vetyget för respektive vilm och delar det sedan på hur många som har get vetyg per film.
+    // Den summerar sedan betyget för respektive film och delar det sedan på hur många som har get vetyg per film.
     // Detta kommer då ge ett snitt betyg per film.
 
 
