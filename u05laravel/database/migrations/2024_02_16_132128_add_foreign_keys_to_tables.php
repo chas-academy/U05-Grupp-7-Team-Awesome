@@ -18,22 +18,24 @@ return new class extends Migration
             $table->unsignedBigInteger('my_list_id');
             $table->unsignedBigInteger('movie_id');
 
-            $table->foreign('my_list_id')->references('id')->on('my_lists');
-            $table->foreign('movie_id')->references('id')->on('movies');
+            $table->foreign('my_list_id')->references('id')->on('my_lists')->onDelete('cascade');
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
         });
+
 
         Schema::table('comments', function (Blueprint $table) {
             $table->unsignedBigInteger('movie_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->foreign('movie_id')->references('id')->on('movies');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
+
 
         Schema::table('my_lists', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
