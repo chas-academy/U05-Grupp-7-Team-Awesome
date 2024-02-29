@@ -30,11 +30,15 @@
     <div class="flex flex-col min-h-screen items-center justify-center bg-gray-100 dark:bg-white-900 mx-auto">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 mx-auto">
 
-            <!-- Heading -->
+            <!-- Den här är sidan namnet d-->
             <h1 class="text-3xl mb-8 flex justify-center" style="color: #ff0000;">Country Movies</h1>
 
-            <!-- Filter Form -->
+            <!-- Definiera ett formulär och ställ in åtgärdsattributet till en specifik rutt för att skicka formulärdata-->
+                      <!-- sedan det fins looper   igenom listan med länder och skapar en
+                    för varje land.Skapar en knapp med texten
+                som används för att skicka formulärdatan till  -->
             <form action="{{ route('country.filter') }}" method="GET" class="mb-8 flex flex-col sm:flex-row items-center justify-center">
+                 <!-- -->
                 <label for="country" class="mr-2">Select Country:</label>
                 <div class="flex">
                     <select name="country" id="country" class="flex-grow bg-gray-300 text-black p-2 mb-2 sm:mb-0 mr-2 rounded-md border border-gray-300 focus:outline-none">
@@ -47,7 +51,10 @@
                 </div>
             </form>
 
-            <!-- Responsive Table -->
+            <!-- Det är en tabell där varje rad representerar en film och visar dess egenskaper, inklusive ID, titel, genre, land, releaseår och regissör.
+             Varje video har också en bild och en länk för att lägga till kommentarer för extra interaktion.
+             Denna struktur ger användarna en tydlig och organiserad översikt över filmdata samtidigt som den 
+             tillåter enkel navigering och interaktion genom att lägga till kommentarer. -->
             <div class="overflow-x-auto flex justify-center">
                 <table class="w-full sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 bg-gray border-collapse border border-gray-300 sm:rounded-lg">
                     <thead class="hidden sm:table-header-group">
